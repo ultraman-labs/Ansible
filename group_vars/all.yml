@@ -1,0 +1,13 @@
+---
+# Default Aruba L3 Switch's connectivity variables 
+
+ansible_user: ansible
+ansible_password: aruba
+#ansible_connection: network_cli                # To use SSH/CLI modules
+ansible_connection: arubanetworks.aoscx.aoscx   # To use REST API modules
+#ansible_connection: httpapi                    # Legacy implementaion REST API modules
+#gather_facts: False
+# ansible_network_os: arubanetworks.aos_switch.arubaoss  # Connection failure, invalid input 
+# ansible_network_os: aoscx                              # Module not supported
+ansible_network_os: arubanetworks.aoscx.aoscx            # Module supported
+

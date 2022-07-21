@@ -1,0 +1,26 @@
+# Playbook to configure some stuff
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  # gathering_facts : False
+  collections:
+    #- arubanetworks.aos_switch
+    - arubanetworks.aoscx
+  
+  tasks:  
+  - name: Show_Version
+    aoscx_command: 
+      commands: show version
+    register: version  
+
+    #aruba_config:
+      #src: "~/afne/CONFIGS/test.txt"
+
+  - name: Send output to screen
+    debug:
+      msg: "{{version}}"    
+
+  - name: Save output to text file in ~/afne 
+    copy:
+      content: "{{version.stdout[0]}}"
+      dest: "~/afne/{{inventory_hostname}}-version.txt"

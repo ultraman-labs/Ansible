@@ -1,0 +1,20 @@
+---
+# This playbook demonstrates the use the Aruba "aoscx_config" module to 
+# push a multiple line configuration, from a text file, to a set of Aruba 
+# switches running AOS-CX version 10.07.
+# 
+# NOTE: Remember that for the aoscx_config module to work successfuly,
+#       the default setting "ansible_connection: network_cli" must be
+#       uncommented in the all.yml file.
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  strategy: free
+
+  tasks:
+    - name: Retrieve configuration from text file
+      aoscx_config:
+        #src:  /home/ansible/afne/configs/config2.txt  # Absolute path
+        src:  ~/afne/configs/01-ntpcnfg.txt            # Relative path

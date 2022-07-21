@@ -1,0 +1,14 @@
+---
+# Playbook to configure some stuff
+
+- hosts: AOSCX_Switches
+  collections:
+    #- arubanetworks.aos_switch
+    - arubanetworks.aoscx
+  tasks:  
+  - name: Show_Version
+    aoscx_command: 
+      commands: show version
+
+    #aruba_config:
+      #src: "~/afne/CONFIGS/test.txt"

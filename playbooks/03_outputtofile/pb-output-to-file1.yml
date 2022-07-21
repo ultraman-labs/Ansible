@@ -1,0 +1,25 @@
+---
+# Playbook:
+#     1) Executes the "show version" command on switches
+#     2) Saves the contents of the regestered variable 
+#        "switch" to a text file; with the name of the switch.
+#
+#  NOTE: This play copies all the output from stdout. Stdout,
+#        contains the entire output, from the executed command
+#        to the switch, as a single string.   
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  
+  tasks:  
+  - name: Show_Version
+    aoscx_command: 
+      commands: show version
+    register: version
+
+  - name: Save output to text file in ~/afne 
+    copy:
+      content: "{{version.stdout[0]}}"
+      dest: "~/afne/{{inventory_hostname}}-version.txt"

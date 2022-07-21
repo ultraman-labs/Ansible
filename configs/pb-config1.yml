@@ -1,0 +1,13 @@
+---
+# Demonstrates the use of the Aruba module to configure a switch.
+# Only one command will be ran.
+# 
+# This playbook uses the "community.network.aruba_config" module to 
+# push a simple single configuration, of an NTP server, to the Aruba 
+# switch. 
+
+- hosts: AOSCX_Switches
+  tasks:
+  - name: Configure NTP server
+    community.network.aruba_config:
+      lines: ntp server 9.9.9.9

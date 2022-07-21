@@ -1,0 +1,17 @@
+---
+
+# NTP configuration variables to be used with jinja2 file cnfntp2.j2
+# Here, multiple ntp server ip addresses are being used
+# Note the syntax.
+#
+# Bonus note: Aruba AOSCX v 10.07 can have a maximum of 8 ntp server ip
+# addresses
+
+ntp_servers: 
+  - 2.2.2.2
+  - 3.3.3.3
+
+#switchvar: swCassidy 
+
+
+

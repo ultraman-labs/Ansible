@@ -1,0 +1,5 @@
+---
+  # swJohn Specific Connectivity Info
+  ansible_user: ansible
+  ansible_host: 192.168.247.118
+  

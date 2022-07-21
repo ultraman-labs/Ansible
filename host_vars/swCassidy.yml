@@ -1,0 +1,7 @@
+---
+  # swCassidy Specific Connectivity Info
+  ansible_user: ansible2
+  ansible_host: 192.168.245.116
+  
+
+  

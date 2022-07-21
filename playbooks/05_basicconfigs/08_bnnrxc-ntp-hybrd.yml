@@ -1,0 +1,66 @@
+---
+# This playbook demonstrates the use of two plays. One play for the REST API
+# Aruba "aoscx_banner" module and the other play for the SSH/CLI "aoscx_config"
+# module.  
+# 
+# 1) Create an exec banner, with ASCII Art, via REST API
+# 2) Configure a multiple NTP servers (from text file) via SSH/CLI
+# 3) Save the configuration by using the "save_when" argument set to always
+#
+
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  roles:
+    - role: arubanetworks.aoscx_role
+
+  tasks:
+    - name: Create a banner on switch
+      aoscx_banner:
+        banner_type: banner     # MOTD Banner
+        banner: |
+
+          ░█████╗░░█████╗░░██████╗░██████╗██╗██████╗░██╗░░░██╗
+          ██╔══██╗██╔══██╗██╔════╝██╔════╝██║██╔══██╗╚██╗░██╔╝
+          ██║░░╚═╝███████║╚█████╗░╚█████╗░██║██║░░██║░╚████╔╝░
+          ██║░░██╗██╔══██║░╚═══██╗░╚═══██╗██║██║░░██║░░╚██╔╝░░
+          ╚█████╔╝██║░░██║██████╔╝██████╔╝██║██████╔╝░░░██║░░░
+          ░╚════╝░╚═╝░░╚═╝╚═════╝░╚═════╝░╚═╝╚═════╝░░░░╚═╝░░░
+
+    - name: Create an exec banner on switch
+      aoscx_banner:
+      #debugger: on_failed
+        banner_type: banner_exec    
+        banner: | 
+
+          _'▀█║────────────▄▄───────────​─▄──▄_
+           ──█║───────▄─▄─█▄▄█║──────▄▄──​█║─█║
+           ──█║───▄▄──█║█║█║─▄║▄──▄║█║─█║​█║▄█║
+           ──█║──█║─█║█║█║─▀▀──█║─█║█║─█║​─▀─▀
+           ──█║▄║█║─█║─▀───────█║▄█║─▀▀
+           ──▀▀▀──▀▀────────────▀─█║
+           ───────▄▄─▄▄▀▀▄▀▀▄──▀▄▄▀
+           ──────███████───▄▀
+           ──────▀█████▀▀▄▀
+           ────────▀█▀
+
+          
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli  
+
+  tasks:
+  - name: Configure NTP server
+    #community.network.aruba_config:
+    aoscx_config:
+      #lines: ntp server 1.1.1.1
+      src:  ~/afne/configs/01-ntpcnfg.txt    # Relative path   
+
+  - name: Always save configurations, said my P.M. Roy
+    aoscx_config:
+      save_when: always       

@@ -1,0 +1,9 @@
+---
+# This playbook consists of a single task described below. It's to 
+# be used with other reusable playbooks that incorporate the
+# "import_tasks and "include_tasks" directive. 
+#
+      
+  - name: Always save configurations, said my P.M. Roy
+    aoscx_config:
+      save_when: always       

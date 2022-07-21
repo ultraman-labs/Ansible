@@ -1,0 +1,59 @@
+---
+# With the use of the:
+#
+#            - imort_playbook
+#            - include_tasks
+#
+# directives, this playbook demonstrates another level of elegance to the 
+# the modularity and practicality of reusable playbooks. The targeted 
+# devices will be all four of the AOSCX switches.
+#
+# The playbook:
+#              1) Generates a configuration file
+#              2) Configures ntp server pm the targeted AOSCX switches
+#              3) Saves the switches updated configuartions
+#                 into seperate uniquely named text files.
+#              4) Saves the running config on each switch
+#                 (write memory)
+#
+# To run playbook use:
+#
+# $ ansible-playbook 20_rsble-plybk.yml -vvv
+#
+#
+# NOTE: For a better understanding of the "import-tasks" and "include_tasks"
+#       directives, reference the "include and import tasks.docx" Word
+#       document located in the D:\tech\network engineering vocation\
+#       subdirectories. Dig for it Tony, it's there!
+#
+#-----------------------------------------------------------------------------
+
+# Importing playbook that runs on the localhost
+
+- name: Generate ntp configuration file
+  import_playbook: /home/ansible/afne/playbooks/05_basicconfigs/15_local-ntp-cfg.yml
+  #import_playbook: ./afne/playbooks/05_basicconfigs/15_local-ntp-cfg.yml
+
+# ----------------------------------------------------------------------------
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+
+  tasks:
+
+  - name: Config NTP server from the imported playbook generated file
+    aoscx_config:  
+      src: ~/afne/src/ntp-cnfig4.cfg   
+      match: none
+            
+  # Utilizing the import_tasks directive
+
+  - name: Save configuration to a text file
+    include_tasks: ~/afne/tasks/01_tsk-cnfg-to-file.yml
+
+  - name: Always save configurations, said my P.M. Roy
+    include_tasks: ~/afne/tasks/02_tsk-sv-cnfg-wrt-mem.yml

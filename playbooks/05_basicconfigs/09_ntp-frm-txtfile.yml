@@ -1,0 +1,23 @@
+---
+# This playbook demonstrates the use of a text file as a source for configuration.
+# Also, the use of the "lines" argument.
+#
+# 1) Configure multiple NTP servers form text file
+# 2) Configure a single NTP server utilizing the "lines" argument
+#
+# NOTE: Comment out either line 20 or 21 to see each playbook action
+          
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli  # Using to usurp default setting in ansible.cfg
+
+  tasks:
+  - name: Configure multiple NTP servers from text file
+    aoscx_config:
+      # lines: ntp server 1.1.1.1
+      src:  ~/afne/configs/01-ntpcnfg.txt    # Relative path 
+
+    

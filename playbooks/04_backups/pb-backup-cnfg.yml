@@ -1,0 +1,23 @@
+---
+# Playbook:
+#     1) Executes the "show run" command on switches
+#     2) Saves the regestered variable "config" to a text file
+#        with the name of the switch to the specified directory.
+#
+
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  
+  tasks:  
+  - name: Show_Run
+    aoscx_command: 
+      commands: show run
+    register: config
+
+  - name: Save config output to text file in ~/afne/backups 
+    copy:
+      content: "{{config.stdout[0]}}"
+      dest: "~/afne/backups/{{inventory_hostname}}-config.txt"

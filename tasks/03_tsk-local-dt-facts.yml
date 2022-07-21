@@ -1,0 +1,37 @@
+---
+
+# Collectively these tasks, in piece-wise step, retrieve the day, month, 
+# year and store these facts into a "set_fact" variable. Then create 
+# directories with date stamp as the title.
+#
+
+    - name: Retrieve Ansible date & time fact
+      setup:
+         filter: "ansible_date_time"
+         gather_subset: "!all"
+
+    - name: Store day of the week into variable DOTW
+      set_fact:
+        DOTW: "{{ ansible_date_time.weekday }}"
+
+    - name: Store date fact into variable YMD
+      set_fact: 
+        YMD: "{{ ansible_date_time.date }}"
+
+    - name: Store TIME as fact
+      set_fact:
+        TIME: "{{ ansible_date_time.time }}"    
+
+    - name: Generate directory 
+      file:
+        path: 
+          #~/afne/backups/{{ hostvars.localhost.DOTW }}_{{ hostvars.localhost.YMD }}_{{ hostvars.localhost.TIME }}
+          ~/afne/backups/{{ hostvars.localhost.DOTW }}
+        state: directory
+
+
+
+
+
+
+      

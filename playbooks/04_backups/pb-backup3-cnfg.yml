@@ -1,0 +1,47 @@
+---
+# Playbook:
+#
+#     1) Retrieves the date-time-stamp from the local system
+#     2) Stores the YMD (Year Month Day) date-time-stamp
+#     3) Creates a YMD named sub-directory
+#     4) Executes the "show run" command on switches
+#     5) Saves the regestered variable "config" to a text file
+#        with the name of the switch to the specified 
+#        named YMD directory.
+#
+
+
+- hosts: localhost
+
+  tasks:
+  - name: Get ansible date/time facts
+    setup:
+      filter: "ansible_date_time"
+      gather_subset: "!all"
+
+  - name: Store YMD as fact
+    set_fact:
+      YMD: "{{ ansible_date_time.date }}"
+
+  - name: Create YMD sub-directory date-time-stamp
+    file:
+     path: ~/afne/backups/{{hostvars.localhost.YMD}}
+     state: directory
+  run_once: true
+
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  
+  tasks:  
+  - name: Show_Run
+    aoscx_command: 
+      commands: show run
+    register: config
+
+  - name: Save config with YMD date-time-stamp
+    copy:
+      content: "{{config.stdout[0]}}"
+      dest: "~/afne/backups/{{hostvars.localhost.YMD}}/{{inventory_hostname}}-{{hostvars.localhost.YMD}}-config.txt"

@@ -1,0 +1,101 @@
+nsible@netauto:~/afne$ ansible -m setup hostname
+177797 1654755139.85036: starting run
+[DEPRECATION WARNING]: [defaults]cow_whitelist option, normalizing names to new standard, use 
+cowsay_enabled_stencils instead. This feature will be removed from ansible-core in version 
+2.15. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+177797 1654755141.33177: Added group all to inventory
+177797 1654755141.33217: Added group ungrouped to inventory
+177797 1654755141.33230: Group all now contains ungrouped
+177797 1654755141.33244: Examining possible inventory source: /home/ansible/afne/hosts.yml
+177797 1654755141.34763: trying /usr/lib/python3/dist-packages/ansible/plugins/cache
+177797 1654755141.35143: Loading CacheModule 'memory' from /usr/lib/python3/dist-packages/ansible/plugins/cache/memory.py
+177797 1654755141.35198: trying /usr/lib/python3/dist-packages/ansible/plugins/inventory
+177797 1654755141.35344: Loaded config def from plugin (inventory/yaml)
+177797 1654755141.35360: Loading InventoryModule 'yaml' from /usr/lib/python3/dist-packages/ansible/plugins/inventory/yaml.py
+177797 1654755141.35365: Attempting to use plugin yaml (/usr/lib/python3/dist-packages/ansible/plugins/inventory/yaml.py)
+177797 1654755141.36169: Loading data from /home/ansible/afne/hosts.yml
+177797 1654755141.37036: group all already in inventory
+177797 1654755141.37074: Added group AOSCX_Switches to inventory
+177797 1654755141.37103: set inventory_file for swTony
+177797 1654755141.37117: set inventory_dir for swTony
+177797 1654755141.37121: Added host swTony to inventory
+177797 1654755141.37126: Added host swTony to group AOSCX_Switches
+177797 1654755141.37129: set ansible_host for swTony
+177797 1654755141.37136: set inventory_file for NetAuto
+177797 1654755141.37142: set inventory_dir for NetAuto
+177797 1654755141.37147: Added host NetAuto to inventory
+177797 1654755141.37150: Added host NetAuto to group AOSCX_Switches
+177797 1654755141.37153: set ansible_host for NetAuto
+177797 1654755141.37159: set inventory_file for swCassidy
+177797 1654755141.37164: set inventory_dir for swCassidy
+177797 1654755141.37167: Added host swCassidy to inventory
+177797 1654755141.37170: Added host swCassidy to group AOSCX_Switches
+177797 1654755141.37174: set inventory_file for swDiego
+177797 1654755141.37178: set inventory_dir for swDiego
+177797 1654755141.37181: Added host swDiego to inventory
+177797 1654755141.37183: Added host swDiego to group AOSCX_Switches
+177797 1654755141.37187: set inventory_file for swJohn
+177797 1654755141.37191: set inventory_dir for swJohn
+177797 1654755141.37210: Added host swJohn to inventory
+177797 1654755141.37217: Added host swJohn to group AOSCX_Switches
+177797 1654755141.37227: Group all now contains AOSCX_Switches
+177797 1654755141.37239: Reconcile groups and hosts in inventory.
+177797 1654755141.38692: trying /usr/lib/python3/dist-packages/ansible/plugins/doc_fragments
+177797 1654755141.38784: Loading ModuleDocFragment 'vars_plugin_staging' from /usr/lib/python3/dist-packages/ansible/plugins/doc_fragments/vars_plugin_staging.py
+177797 1654755141.38849: Loaded config def from plugin (vars/host_group_vars)
+177797 1654755141.38860: Loading VarsModule 'host_group_vars' from /usr/lib/python3/dist-packages/ansible/plugins/vars/host_group_vars.py
+177797 1654755141.38894: Loading VarsModule 'host_group_vars' from /usr/lib/python3/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+177797 1654755141.38984: Loading VarsModule 'host_group_vars' from /usr/lib/python3/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+177797 1654755141.39069: Loading VarsModule 'host_group_vars' from /usr/lib/python3/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+177797 1654755141.39542: Loading VarsModule 'host_group_vars' from /usr/lib/python3/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+177797 1654755141.39702: Loading VarsModule 'host_group_vars' from /usr/lib/python3/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+177797 1654755141.39848: Loading VarsModule 'host_group_vars' from /usr/lib/python3/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+177797 1654755141.39900: Loading VarsModule 'host_group_vars' from /usr/lib/python3/dist-packages/ansible/plugins/vars/host_group_vars.py (found_in_cache=True, class_only=False)
+177797 1654755141.40022: Loading CacheModule 'memory' from /usr/lib/python3/dist-packages/ansible/plugins/cache/memory.py (found_in_cache=True, class_only=False)
+177797 1654755141.40289: Could not match supplied host pattern, ignoring: hostname
+[WARNING]: Could not match supplied host pattern, ignoring: hostname
+[WARNING]: No hosts matched, nothing to do
+177797 1654755141.46814: trying /usr/lib/python3/dist-packages/ansible/plugins/callback
+177797 1654755141.48194: Loading CallbackModule 'minimal' from /usr/lib/python3/dist-packages/ansible/plugins/callback/minimal.py
+177797 1654755141.48443: Loading ModuleDocFragment 'default_callback' from /usr/lib/python3/dist-packages/ansible/plugins/doc_fragments/default_callback.py
+177797 1654755141.48856: Loaded config def from plugin (callback/default)
+177797 1654755141.49355: Loading CallbackModule 'default' from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py (found_in_cache=False, class_only=True)
+177797 1654755141.60032: Loaded config def from plugin (callback/junit)
+177797 1654755141.60218: Loading CallbackModule 'junit' from /usr/lib/python3/dist-packages/ansible/plugins/callback/junit.py (found_in_cache=False, class_only=True)
+177797 1654755141.60228: Loading CallbackModule 'minimal' from /usr/lib/python3/dist-packages/ansible/plugins/callback/minimal.py (found_in_cache=False, class_only=True)
+177797 1654755141.60477: Loading CallbackModule 'oneline' from /usr/lib/python3/dist-packages/ansible/plugins/callback/oneline.py (found_in_cache=False, class_only=True)
+177797 1654755141.60878: Loaded config def from plugin (callback/tree)
+177797 1654755141.60892: Loading CallbackModule 'tree' from /usr/lib/python3/dist-packages/ansible/plugins/callback/tree.py (found_in_cache=False, class_only=True)
+177797 1654755141.61143: trying /usr/lib/python3/dist-packages/ansible/plugins/callback/__pycache__
+177797 1654755141.62566: Loading CallbackModule 'ansible_collections.ansible.posix.plugins.callback.timer' from /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/callback/timer.py (searched paths: /usr/lib/python3/dist-packages/ansible/plugins/callback/__pycache__:/usr/lib/python3/dist-packages/ansible/plugins/callback) (found_in_cache=False, class_only=True)
+177797 1654755141.63733: Loaded config def from plugin (callback/ansible_collections.ansible.posix.plugins.callback.profile_tasks)
+177797 1654755141.63758: Loading CallbackModule 'ansible_collections.ansible.posix.plugins.callback.profile_tasks' from /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/callback/profile_tasks.py (searched paths: /usr/lib/python3/dist-packages/ansible/plugins/callback/__pycache__:/usr/lib/python3/dist-packages/ansible/plugins/callback) (found_in_cache=False, class_only=True)
+177797 1654755141.64379: Loading CallbackModule 'ansible_collections.ansible.posix.plugins.callback.profile_roles' from /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/callback/profile_roles.py (searched paths: /usr/lib/python3/dist-packages/ansible/plugins/callback/__pycache__:/usr/lib/python3/dist-packages/ansible/plugins/callback) (found_in_cache=False, class_only=True)
+177797 1654755141.64853: in VariableManager get_vars()
+177797 1654755141.65145: done with get_vars()
+177797 1654755141.65426: variable 'omit' from source: magic vars
+177797 1654755142.03343: trying /usr/lib/python3/dist-packages/ansible/plugins/strategy
+177797 1654755142.04079: Loading StrategyModule 'linear' from /usr/lib/python3/dist-packages/ansible/plugins/strategy/linear.py
+177797 1654755142.04420: getting the remaining hosts for this loop
+177797 1654755142.04440: done getting the remaining hosts for this loop
+177797 1654755142.04488: building list of next tasks for hosts
+177797 1654755142.04527: done building task lists
+177797 1654755142.04532: counting tasks in each state of execution
+177797 1654755142.04536: done counting tasks in each state of execution:
+        num_setups: 0
+        num_tasks: 0
+        num_rescue: 0
+        num_always: 0
+177797 1654755142.04542: all hosts are done, so returning None's for all hosts
+177797 1654755142.04545: done queuing things up, now waiting for results queue to drain
+177797 1654755142.04549: results queue empty
+177797 1654755142.04564: checking for any_errors_fatal
+177797 1654755142.04571: done checking for any_errors_fatal
+177797 1654755142.04574: checking for max_fail_percentage
+177797 1654755142.04577: done checking for max_fail_percentage
+177797 1654755142.04579: checking to see if all hosts have failed and the running result is not ok
+177797 1654755142.04581: done checking to see if all hosts have failed
+177797 1654755142.04586: running handlers
+177797 1654755142.05269: RUNNING CLEANUP
+ansible@netauto:~/afne$ 

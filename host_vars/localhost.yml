@@ -1,0 +1,8 @@
+---
+# NetAuto Specific Connectivity Info
+# localhost: hostname= localhost
+# hostname: localhost
+ansible_host: localhost
+
+# Node configuration variables
+ntp_server10: 10.10.10.10

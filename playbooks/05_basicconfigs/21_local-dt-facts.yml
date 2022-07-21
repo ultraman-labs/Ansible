@@ -1,0 +1,39 @@
+---
+
+# This playbook retrieves the day, month, year and stores it in a "set_fact"
+# variable. Then creates directories with date stamp as the title of the
+# directories.
+#
+
+- hosts: localhost
+
+  tasks: 
+    - name: Retrieve Ansible date & time fact
+      setup:
+         filter: "ansible_date_time"
+         gather_subset: "!all"
+
+    - name: Store time stamp as fact into variable tstamp
+      set_fact:
+        tstamp: "{{ ansible_date_time.weekday }}"
+
+    - name: Store date & time fact into variable DTG
+      set_fact: 
+        YMD: "{{ ansible_date_time.date }}"
+
+    - name: Store TIME as fact
+      set_fact:
+        TIME: "{{ ansible_date_time.time }}"    
+
+    - name: Generate directory  {{ hostvars.localhost.DTG }}
+      file:
+        path: ~/afne/backups/{{ hostvars.localhost.tstamp }}_{{ hostvars.localhost.YMD }}_{{ hostvars.localhost.TIME }}
+        state: directory
+
+  run_once: true      
+
+
+
+
+
+      

@@ -1,0 +1,14 @@
+---
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Get hostname  
+      shell: echo $HOSTNAME
+      register: boxname
+
+    - name: Print the var hostname  
+      debug:
+       var: boxname

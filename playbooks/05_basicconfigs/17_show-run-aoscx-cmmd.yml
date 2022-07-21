@@ -1,0 +1,41 @@
+---
+# This playbook demonstrates executing the CLI "show run" command
+# via the aoscx_command module, then saved to text file.
+#
+# The output is collected in the results dictionary and referenced
+# with index 0. Index 0 contains all the output from the "show run"
+# command. The generated output is placed into a text file. Note line
+# 36 as it uses the conditional word "contains". Then you see in
+# quotes "Current configuration:", any actual line of text that is
+# is in the output from the show command will trigger that all of the
+# output will be captured.
+#  
+# Lasltly in line 39, the generated output configuartaion file has 
+# the targeted name of the host, as part of the name of the output 
+# file itself. Here, we are using the jinja2 templating syntax to 
+# acomplish that.
+# 
+# To run playbook use:
+# 
+# $ ansible-playbook  -l swCassidy 17_show-run-aoscx-cmmd.yml -vvv
+# 
+          
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+
+  tasks: 
+
+  - name: Save configuration to a text file
+    aoscx_command:
+      commands: ['show run']
+      wait_for:
+        - result[0] contains "Current configuration:"
+      retries: 3  
+      interval: 5
+      output_file: /home/ansible/afne/output/{{ inventory_hostname }}-config.cfg
+      output_file_format: plain-text
+          

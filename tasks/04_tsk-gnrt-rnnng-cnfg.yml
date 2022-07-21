@@ -1,0 +1,15 @@
+---
+
+# This task retrieves the current running configuration via
+# the show command. Then saves the config to the designated
+# directory.
+
+- name: Get the running config and store it in a variable.
+  aoscx_command:
+    commands: ['show run']
+    wait_for:
+      - result[0] contains "Current configuration:"
+    retries: 3  
+    interval: 5
+    output_file: /home/ansible/afne/backups/{{ hostvars.localhost.tstamp }}_{{ hostvars.localhost.YMD }}_{{ hostvars.localhost.TIME }}/{{ inventory_hostname }}-config.txt
+    output_file_format: plain-text

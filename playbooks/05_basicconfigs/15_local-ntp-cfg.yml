@@ -1,0 +1,24 @@
+
+# This playbook demonstrates generating a configuration file, giving the
+# file the name of the localhost, with jinja2 syntax, and then placing
+# the file in the designated directory. Cool shanola huh?!
+#
+# To run the playbook use at the prompt:
+#
+# $ ansible-playbook 15_local-ntp-cfg.yml -vvv
+
+---
+- hosts: localhost
+  connection: local
+  vars_files: ~/afne/vars/ntp-vars-vals3.yml
+  
+  gather_facts: False
+  tasks:
+
+  - name: Generate ntp config file locally
+    template: 
+      src=~/afne/templates/cnfntp3.j2 
+      dest=~/afne/output/{{ inventory_hostname }}-ntp-cnfg.cfg
+      #dest=~/afne/src/ntp-cnfig4.cfg
+      
+      

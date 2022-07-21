@@ -1,0 +1,135 @@
+2022-03-31 20:20:38,957 p=126263 u=ansible n=ansible | [DEPRECATION WARNING]: [defaults]cow_whitelist option, normalizing names to new standard, use 
+cowsay_enabled_stencils instead. This feature will be removed from ansible-core in version 2.15. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-03-31 20:20:39,230 p=126263 u=ansible n=ansible |  _______________________
+< PLAY [AOSCX_Switches] >
+ -----------------------
+  \     .    _  .    
+   \    |\_|/__/|    
+       / / \/ \  \  
+      /__|O||O|__ \ 
+     |/_ \_/\_/ _\ |  
+     | | (____) | ||  
+     \/\___/\__/  // 
+     (_/         ||
+      |          ||
+      |          ||\   
+       \        //_/  
+        \______//
+       __ || __||
+      (____(____)
+
+
+2022-03-31 20:20:39,286 p=126263 u=ansible n=ansible |  _____________________
+< TASK [Show_Version] >
+ ---------------------
+   \
+    \
+      _____   _________
+     /     \_/         |
+    |                 ||
+    |                 ||
+   |    ###\  /###   | |
+   |     0  \/  0    | |
+  /|                 | |
+ / |        <        |\ \
+| /|                 | | |
+| |     \_______/   |  | |
+| |                 | / /
+/||                 /|||
+   ----------------|
+        | |    | |
+        ***    ***
+       /___\  /___\
+
+
+2022-03-31 20:20:40,439 p=126273 u=ansible n=ansible | network_os is set to arubanetworks.aos_switch.arubaoss
+2022-03-31 20:20:40,727 p=126272 u=ansible n=ansible | network_os is set to arubanetworks.aos_switch.arubaoss
+2022-03-31 20:20:43,951 p=126298 u=ansible n=p=126298 u=ansible | paramiko [swTony.newhope.io] | Connected (version 2.0, client OpenSSH_8.0)
+2022-03-31 20:20:48,689 p=126298 u=ansible n=p=126298 u=ansible | paramiko [swTony.newhope.io] | Auth banner: b"\n The End User License Agreement (EULA) and Additional License Authorization \n (ALA) documents are available at the following URL: \n www.arubanetworks.com/arubaos-cx-ova \n By downloading, copying, or using the ArubaOS-CX OVA you agree to both the \n End User License Agreement and the Additional License Authorization. \n ArubaOS-CX Virtual Platform is provided for Training purposes only.\n As a reminder, there is no support or warranty associated with this platform.\n\n (C) Copyright 2017-2021 Hewlett Packard Enterprise Development LP\n\n                      RESTRICTED RIGHTS LEGEND\n Confidential computer software. Valid license from Hewlett Packard Enterprise\n Development LP required for possession, use or copying. Consistent with FAR\n 12.211 and 12.212, Commercial Computer Software, Computer Software\n Documentation, and Technical Data for Commercial Items are licensed to the\n U.S. Government under vendor's standard commercial license.\n\n\n"
+2022-03-31 20:20:48,690 p=126298 u=ansible n=p=126298 u=ansible | paramiko [swTony.newhope.io] | Authentication (password) failed.
+2022-03-31 20:20:48,802 p=126263 u=ansible n=ansible | ok: [swTony]
+2022-03-31 20:21:01,519 p=126263 u=ansible n=ansible | ok: [swCassidy]
+2022-03-31 20:21:01,576 p=126263 u=ansible n=ansible |  ______________________________
+< TASK [Send output to screen] >
+ ------------------------------
+        \    ,-^-.
+         \   !oYo!
+          \ /./=\.\______
+               ##        )\/\
+                ||-----w||
+                ||      ||
+
+               Cowth Vader
+
+
+2022-03-31 20:21:02,408 p=126263 u=ansible n=ansible | ok: [swCassidy] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "[Errno -3] Temporary failure in name resolution"
+        ],
+        "stdout_lines": [
+            [
+                "[Errno -3] Temporary failure in name resolution"
+            ]
+        ]
+    }
+}
+2022-03-31 20:21:02,567 p=126263 u=ansible n=ansible | ok: [swTony] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "Failed to authenticate: Authentication failed."
+        ],
+        "stdout_lines": [
+            [
+                "Failed to authenticate: Authentication failed."
+            ]
+        ]
+    }
+}
+2022-03-31 20:21:02,616 p=126263 u=ansible n=ansible |  ___________________________________________
+< TASK [Save output to text file in ~/afne] >
+ -------------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||--WWW |
+                ||     ||
+
+
+2022-03-31 20:21:04,246 p=126263 u=ansible n=ansible | changed: [swTony]
+2022-03-31 20:21:04,259 p=126263 u=ansible n=ansible | changed: [swCassidy]
+2022-03-31 20:21:04,307 p=126263 u=ansible n=ansible |  ____________
+< PLAY RECAP >
+ ------------
+  \                                  ,+*^^*+___+++_
+   \                           ,*^^^^              )
+    \                       _+*                     ^**+_
+     \                    +^       _ _++*+_+++_,         )
+              _+^^*+_    (     ,+*^ ^          \+_        )
+             {       )  (    ,(    ,_+--+--,      ^)      ^\
+            { (@)    } f   ,(  ,+-^ __*_*_  ^^\_   ^\       )
+           {:;-/    (_+*-+^^^^^+*+*<_ _++_)_    )    )      /
+          ( /  (    (        ,___    ^*+_+* )   <    <      \
+           U _/     )    *--<  ) ^\-----++__)   )    )       )
+            (      )  _(^)^^))  )  )\^^^^^))^*+/    /       /
+          (      /  (_))_^)) )  )  ))^^^^^))^^^)__/     +^^
+         (     ,/    (^))^))  )  ) ))^^^^^^^))^^)       _)
+          *+__+*       (_))^)  ) ) ))^^^^^^))^^^^^)____*^
+          \             \_)^)_)) ))^^^^^^^^^^))^^^^)
+           (_             ^\__^^^^^^^^^^^^))^^^^^^^)
+             ^\___            ^\__^^^^^^))^^^^^^^^)\\
+                  ^^^^^\uuu/^^\uuu/^^^^\^\^\^\^\^\^\^\
+                     ___) >____) >___   ^\_\_\_\_\_\_\)
+                    ^^^//\\_^^//\\_^       ^(\_\_\_\)
+                      ^^^ ^^ ^^^ ^
+
+
+2022-03-31 20:21:04,308 p=126263 u=ansible n=ansible | swCassidy                  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-03-31 20:21:04,308 p=126263 u=ansible n=ansible | swTony                     : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-03-31 20:21:04,377 p=126298 u=ansible n=ansible | shutdown complete
+2022-03-31 20:21:04,378 p=126286 u=ansible n=ansible | shutdown complete

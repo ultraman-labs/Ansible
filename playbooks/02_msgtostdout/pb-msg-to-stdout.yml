@@ -1,0 +1,29 @@
+---
+# Playbook: 
+#    1) Ecexutes the "show version" CLI switch command
+#    2) Conditional "when", if true, sends outputs msg to stdout
+#    3) Sends regestered variable, stored in "version" to stdout
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  
+  tasks:  
+  - name: Show_Version
+    aoscx_command: 
+      commands: show version
+    register: version
+
+  - name: Message to screen with conditional
+    debug:
+      msg: "Vato, conditional 'when' was triggered!"
+    when: version.stdout_lines is search('Virtual.10.07.0010')
+
+    #aruba_config:
+      #src: "~/afne/CONFIGS/test.txt"
+
+  - name: Output to screen with msg
+    debug:
+      msg: "{{version}}"  
+

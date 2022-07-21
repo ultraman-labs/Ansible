@@ -1,0 +1,475 @@
+2022-05-14 23:41:42,024 p=78653 u=ansible n=ansible | ansible-playbook [core 2.12.4]
+  config file = /home/ansible/afne/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/ansible/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.8.10 (default, Mar 15 2022, 12:22:08) [GCC 9.4.0]
+  jinja version = 2.10.1
+  libyaml = True
+2022-05-14 23:41:42,029 p=78653 u=ansible n=ansible | Using /home/ansible/afne/ansible.cfg as config file
+2022-05-14 23:41:42,029 p=78653 u=ansible n=ansible | [DEPRECATION WARNING]: [defaults]cow_whitelist option, normalizing names to new standard, use
+ cowsay_enabled_stencils instead. This feature will be removed from ansible-core in version 
+2.15. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2022-05-14 23:41:42,046 p=78653 u=ansible n=ansible | setting up inventory plugins
+2022-05-14 23:41:42,135 p=78653 u=ansible n=ansible | host_list declined parsing /home/ansible/afne/hosts.yml as it did not pass its verify_file() method
+2022-05-14 23:41:42,136 p=78653 u=ansible n=ansible | script declined parsing /home/ansible/afne/hosts.yml as it did not pass its verify_file() method
+2022-05-14 23:41:42,184 p=78653 u=ansible n=ansible | Parsed /home/ansible/afne/hosts.yml inventory source with yaml plugin
+2022-05-14 23:41:43,274 p=78653 u=ansible n=ansible | Loading collection arubanetworks.aoscx from /home/ansible/.ansible/collections/ansible_collections/arubanetworks/aoscx
+2022-05-14 23:41:43,777 p=78653 u=ansible n=ansible | Loading callback plugin default of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py
+2022-05-14 23:41:43,941 p=78653 u=ansible n=ansible | redirecting (type: callback) ansible.builtin.timer to ansible.posix.timer
+2022-05-14 23:41:43,943 p=78653 u=ansible n=ansible | Loading collection ansible.posix from /usr/lib/python3/dist-packages/ansible_collections/ansible/posix
+2022-05-14 23:41:43,945 p=78653 u=ansible n=ansible | redirecting (type: callback) ansible.builtin.profile_tasks to ansible.posix.profile_tasks
+2022-05-14 23:41:43,964 p=78653 u=ansible n=ansible | redirecting (type: callback) ansible.builtin.profile_roles to ansible.posix.profile_roles
+2022-05-14 23:41:43,965 p=78653 u=ansible n=ansible | Attempting to use 'default' callback.
+2022-05-14 23:41:43,965 p=78653 u=ansible n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-05-14 23:41:43,965 p=78653 u=ansible n=ansible | Attempting to use 'junit' callback.
+2022-05-14 23:41:43,965 p=78653 u=ansible n=ansible | Attempting to use 'minimal' callback.
+2022-05-14 23:41:43,965 p=78653 u=ansible n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-05-14 23:41:43,965 p=78653 u=ansible n=ansible | Attempting to use 'oneline' callback.
+2022-05-14 23:41:43,966 p=78653 u=ansible n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-05-14 23:41:43,966 p=78653 u=ansible n=ansible | Attempting to use 'tree' callback.
+2022-05-14 23:41:43,966 p=78653 u=ansible n=ansible | Attempting to use 'timer' callback.
+2022-05-14 23:41:43,966 p=78653 u=ansible n=ansible | Loading callback plugin ansible.posix.timer of type aggregate, v2.0 from /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/callback/timer.py
+2022-05-14 23:41:43,966 p=78653 u=ansible n=ansible | Attempting to use 'profile_tasks' callback.
+2022-05-14 23:41:43,967 p=78653 u=ansible n=ansible | Loading callback plugin ansible.posix.profile_tasks of type aggregate, v2.0 from /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/callback/profile_tasks.py
+2022-05-14 23:41:43,967 p=78653 u=ansible n=ansible | Attempting to use 'profile_roles' callback.
+2022-05-14 23:41:43,967 p=78653 u=ansible n=ansible | Loading callback plugin ansible.posix.profile_roles of type aggregate, v2.0 from /usr/lib/python3/dist-packages/ansible_collections/ansible/posix/plugins/callback/profile_roles.py
+2022-05-14 23:41:44,126 p=78653 u=ansible n=ansible |  ___________________________________
+< PLAYBOOK: 08_bnnrxc-ntp-hybrd.yml >
+ -----------------------------------
+  \                                  ,+*^^*+___+++_
+   \                           ,*^^^^              )
+    \                       _+*                     ^**+_
+     \                    +^       _ _++*+_+++_,         )
+              _+^^*+_    (     ,+*^ ^          \+_        )
+             {       )  (    ,(    ,_+--+--,      ^)      ^\
+            { (@)    } f   ,(  ,+-^ __*_*_  ^^\_   ^\       )
+           {:;-/    (_+*-+^^^^^+*+*<_ _++_)_    )    )      /
+          ( /  (    (        ,___    ^*+_+* )   <    <      \
+           U _/     )    *--<  ) ^\-----++__)   )    )       )
+            (      )  _(^)^^))  )  )\^^^^^))^*+/    /       /
+          (      /  (_))_^)) )  )  ))^^^^^))^^^)__/     +^^
+         (     ,/    (^))^))  )  ) ))^^^^^^^))^^)       _)
+          *+__+*       (_))^)  ) ) ))^^^^^^))^^^^^)____*^
+          \             \_)^)_)) ))^^^^^^^^^^))^^^^)
+           (_             ^\__^^^^^^^^^^^^))^^^^^^^)
+             ^\___            ^\__^^^^^^))^^^^^^^^)\\
+                  ^^^^^\uuu/^^\uuu/^^^^\^\^\^\^\^\^\^\
+                     ___) >____) >___   ^\_\_\_\_\_\_\)
+                    ^^^//\\_^^//\\_^       ^(\_\_\_\)
+                      ^^^ ^^ ^^^ ^
+
+
+2022-05-14 23:41:44,130 p=78653 u=ansible n=ansible | 1 plays in 08_bnnrxc-ntp-hybrd.yml
+2022-05-14 23:41:44,359 p=78653 u=ansible n=ansible |  _______________________
+< PLAY [AOSCX_Switches] >
+ -----------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2022-05-14 23:41:44,579 p=78653 u=ansible n=ansible | META: ran handlers
+2022-05-14 23:41:44,620 p=78653 u=ansible n=ansible | META: 
+2022-05-14 23:41:44,947 p=78653 u=ansible n=ansible |  ________________________________________
+< TASK [Create an exec banner on switch] >
+ ----------------------------------------
+     \
+      \
+          oO)-.                       .-(Oo
+         /__  _\                     /_  __\
+         \  \(  |     ()~()         |  )/  /
+          \__|\ |    (-___-)        | /|__/
+          '  '--'    ==`-'==        '--'  '
+
+
+2022-05-14 23:41:44,984 p=78653 u=ansible n=ansible | Saturday 14 May 2022  23:41:44 -0700 (0:00:01.036)       0:00:01.036 ********** 
+2022-05-14 23:41:44,986 p=78653 u=ansible n=ansible | Saturday 14 May 2022  23:41:44 -0700 (0:00:01.021)       0:00:01.021 ********** 
+2022-05-14 23:41:47,021 p=78677 u=ansible n=ansible | Loading collection ansible.netcommon from /home/ansible/.ansible/collections/ansible_collections/ansible/netcommon
+2022-05-14 23:41:47,210 p=78677 u=ansible n=ansible | Including module_utils file ansible/__init__.py
+2022-05-14 23:41:47,228 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/__init__.py
+2022-05-14 23:41:47,251 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/basic.py
+2022-05-14 23:41:47,251 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/_text.py
+2022-05-14 23:41:47,251 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/_collections_compat.py
+2022-05-14 23:41:47,251 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/__init__.py
+2022-05-14 23:41:47,252 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/_json_compat.py
+2022-05-14 23:41:47,252 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/_utils.py
+2022-05-14 23:41:47,252 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/arg_spec.py
+2022-05-14 23:41:47,253 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/file.py
+2022-05-14 23:41:47,267 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/locale.py
+2022-05-14 23:41:47,269 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/parameters.py
+2022-05-14 23:41:47,269 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/collections.py
+2022-05-14 23:41:47,270 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/process.py
+2022-05-14 23:41:47,288 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/sys_info.py
+2022-05-14 23:41:47,289 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/text/converters.py
+2022-05-14 23:41:47,289 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/text/__init__.py
+2022-05-14 23:41:47,290 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/text/formatters.py
+2022-05-14 23:41:47,290 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/validation.py
+2022-05-14 23:41:47,291 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/warnings.py
+2022-05-14 23:41:47,291 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/compat/selectors.py
+2022-05-14 23:41:47,292 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/compat/__init__.py
+2022-05-14 23:41:47,293 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/compat/_selectors2.py
+2022-05-14 23:41:47,293 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/compat/selinux.py
+2022-05-14 23:41:47,294 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/distro/__init__.py
+2022-05-14 23:41:47,355 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/distro/_distro.py
+2022-05-14 23:41:47,356 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/errors.py
+2022-05-14 23:41:47,356 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/parsing/convert_bool.py
+2022-05-14 23:41:47,356 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/parsing/__init__.py
+2022-05-14 23:41:47,356 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/pycompat24.py
+2022-05-14 23:41:47,378 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/six/__init__.py
+2022-05-14 23:41:47,379 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/arubanetworks/aoscx/plugins/module_utils/aoscx.py
+2022-05-14 23:41:47,380 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/connection.py
+2022-05-14 23:41:47,380 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/json.py
+2022-05-14 23:41:47,380 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/__init__.py
+2022-05-14 23:41:47,381 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/ansible/netcommon/plugins/module_utils/network/common/utils.py
+2022-05-14 23:41:47,381 p=78677 u=ansible n=ansible | Including module_utils file ansible/module_utils/common/network.py
+2022-05-14 23:41:47,381 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/ansible/__init__.py
+2022-05-14 23:41:47,381 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/ansible/netcommon/__init__.py
+2022-05-14 23:41:47,381 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/ansible/netcommon/plugins/__init__.py
+2022-05-14 23:41:47,381 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/ansible/netcommon/plugins/module_utils/__init__.py
+2022-05-14 23:41:47,381 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/ansible/netcommon/plugins/module_utils/network/__init__.py
+2022-05-14 23:41:47,382 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/ansible/netcommon/plugins/module_utils/network/common/__init__.py
+2022-05-14 23:41:47,382 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/arubanetworks/__init__.py
+2022-05-14 23:41:47,384 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/arubanetworks/aoscx/__init__.py
+2022-05-14 23:41:47,384 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/arubanetworks/aoscx/plugins/__init__.py
+2022-05-14 23:41:47,385 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/arubanetworks/aoscx/plugins/module_utils/__init__.py
+2022-05-14 23:41:47,385 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/arubanetworks/aoscx/plugins/module_utils/aoscx_pyaoscx.py
+2022-05-14 23:41:47,385 p=78677 u=ansible n=ansible | Including module_utils file ansible_collections/arubanetworks/aoscx/plugins/module_utils/aoscx_ztp.py
+2022-05-14 23:41:47,432 p=78677 u=ansible n=ansible | Using module file /home/ansible/.ansible/collections/ansible_collections/arubanetworks/aoscx/plugins/modules/aoscx_banner.py
+2022-05-14 23:41:47,432 p=78677 u=ansible n=ansible | Pipelining is enabled.
+2022-05-14 23:41:47,433 p=78677 u=ansible n=ansible | <192.168.245.116> ESTABLISH SSH CONNECTION FOR USER: ansible2
+2022-05-14 23:41:47,491 p=78677 u=ansible n=ansible | <192.168.245.116> SSH: ansible.cfg set ssh_args: (-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+2022-05-14 23:41:47,494 p=78677 u=ansible n=ansible | <192.168.245.116> SSH: ANSIBLE_HOST_KEY_CHECKING/host_key_checking disabled: (-o)(StrictHostKeyChecking=no)
+2022-05-14 23:41:47,499 p=78677 u=ansible n=ansible | <192.168.245.116> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User="ansible2")
+2022-05-14 23:41:47,501 p=78677 u=ansible n=ansible | <192.168.245.116> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+2022-05-14 23:41:47,502 p=78677 u=ansible n=ansible | <192.168.245.116> SSH: Set ssh_common_args: ()
+2022-05-14 23:41:47,503 p=78677 u=ansible n=ansible | <192.168.245.116> SSH: Set ssh_extra_args: ()
+2022-05-14 23:41:47,510 p=78677 u=ansible n=ansible | <192.168.245.116> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath="/home/ansible/.ansible/cp/88c3693c46")
+2022-05-14 23:41:47,521 p=78677 u=ansible n=ansible | <192.168.245.116> SSH: EXEC sshpass -d11 ssh -vvv -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'User="ansible2"' -o ConnectTimeout=10 -o 'ControlPath="/home/ansible/.ansible/cp/88c3693c46"' 192.168.245.116 '/bin/sh -c '"'"'/usr/bin/python3 && sleep 0'"'"''
+2022-05-14 23:41:51,511 p=78677 u=ansible n=ansible | <192.168.245.116> (1, b'Invalid input: /bin/sh\n', b'OpenSSH_8.2p1 Ubuntu-4ubuntu0.4, OpenSSL 1.1.1f  31 Mar 2020\r\ndebug1: Reading configuration data /home/ansible/.ssh/config\r\ndebug1: /home/ansible/.ssh/config line 1: Applying options for 192.168.245.116\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 192.168.245.116 is address\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/home/ansible/.ansible/cp/88c3693c46" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 192.168.245.116 [192.168.245.116] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9970 ms remain after connect\r\ndebug1: identity file /home/ansible/.ssh/id_rsa type -1\r\ndebug1: identity file /home/ansible/.ssh/id_rsa-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_dsa type -1\r\ndebug1: identity file /home/ansible/.ssh/id_dsa-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ecdsa type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ecdsa-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ecdsa_sk type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ecdsa_sk-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ed25519 type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ed25519-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ed25519_sk type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ed25519_sk-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_xmss type -1\r\ndebug1: identity file /home/ansible/.ssh/id_xmss-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.4\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_8.0 PKIX[Portable]\r\ndebug1: match: OpenSSH_8.0 PKIX[Portable] pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.245.116:22 as \'ansible2\'\r\ndebug3: hostkeys_foreach: reading file "/home/ansible/.ssh/known_hosts"\r\ndebug3: record_hostkey: found key type ECDSA in file /home/ansible/.ssh/known_hosts:2\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.245.116\r\ndebug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c\r\ndebug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,ssh-ed25519,sk-ssh-ed25519@openssh.com,rsa-sha2-512,rsa-sha2-256,ssh-rsa\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com,zlib\r\ndebug2: compression stoc: none,zlib@openssh.com,zlib\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1\r\ndebug2: host key algorithms: ssh-rsa,rsa-sha2-256,rsa-sha2-512,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none\r\ndebug2: compression stoc: none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ecdsa-sha2-nistp256\r\ndebug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\r\ndebug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:75jclK7V6d6xNCHS3Nwu56S9N0Y2KghoTc+T2FGwU18\r\ndebug3: hostkeys_foreach: reading file "/home/ansible/.ssh/known_hosts"\r\ndebug3: record_hostkey: found key type ECDSA in file /home/ansible/.ssh/known_hosts:2\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.245.116\r\ndebug1: Host \'192.168.245.116\' is known and matches the ECDSA host key.\r\ndebug1: Found key in /home/ansible/.ssh/known_hosts:2\r\ndebug3: send packet: type 21\r\ndebug2: set_newkeys: mode 1\r\ndebug1: rekey out after 134217728 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: set_newkeys: mode 0\r\ndebug1: rekey in after 134217728 blocks\r\ndebug1: Will attempt key: /home/ansible/.ssh/id_rsa \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_dsa \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_ecdsa \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_ecdsa_sk \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_ed25519 \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_ed25519_sk \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_xmss \r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: publickey-algorithms@roumenpetrov.info (unrecognised)\r\ndebug1: kex_input_ext_info: server-sig-algs=<x509v3-ecdsa-sha2-nistp256,x509v3-ecdsa-sha2-nistp384,x509v3-ecdsa-sha2-nistp521,x509v3-sign-rsa,x509v3-ssh-rsa,x509v3-rsa2048-sha256,x509v3-sign-dss,x509v3-ssh-dss,ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 53\r\ndebug3: input_userauth_banner\r\n\n The End User License Agreement (EULA) and Additional License Authorization \n (ALA) documents are available at the following URL: \n www.arubanetworks.com/arubaos-cx-ova \n By downloading, copying, or using the ArubaOS-CX OVA you agree to both the \n End User License Agreement and the Additional License Authorization. \n ArubaOS-CX Virtual Platform is provided for Training purposes only.\n As a reminder, there is no support or warranty associated with this platform.\n\n (C) Copyright 2017-2021 Hewlett Packard Enterprise Development LP\n\n                      RESTRICTED RIGHTS LEGEND\n Confidential computer software. Valid license from Hewlett Packard Enterprise\n Development LP required for possession, use or copying. Consistent with FAR\n 12.211 and 12.212, Commercial Computer Software, Computer Software\n Documentation, and Technical Data for Commercial Items are licensed to the\n U.S. Government under vendor\'s standard commercial license.\n\n\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,password\r\ndebug3: start over, passed a different list publickey,password\r\ndebug3: preferred gssapi-with-mic,publickey,keyboard-interactive,password\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: keyboard-interactive,password\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/ansible/.ssh/id_rsa\r\ndebug3: no such identity: /home/ansible/.ssh/id_rsa: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_dsa\r\ndebug3: no such identity: /home/ansible/.ssh/id_dsa: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_ecdsa\r\ndebug3: no such identity: /home/ansible/.ssh/id_ecdsa: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_ecdsa_sk\r\ndebug3: no such identity: /home/ansible/.ssh/id_ecdsa_sk: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_ed25519\r\ndebug3: no such identity: /home/ansible/.ssh/id_ed25519: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_ed25519_sk\r\ndebug3: no such identity: /home/ansible/.ssh/id_ed25519_sk: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_xmss\r\ndebug3: no such identity: /home/ansible/.ssh/id_xmss: No such file or directory\r\ndebug2: we did not send a packet, disable method\r\ndebug3: authmethod_lookup password\r\ndebug3: remaining preferred: ,password\r\ndebug3: authmethod_is_enabled password\r\ndebug1: Next authentication method: password\r\ndebug3: send packet: type 50\r\ndebug2: we sent a password packet, wait for reply\r\ndebug3: receive packet: type 52\r\ndebug1: Authentication succeeded (password).\r\nAuthenticated to 192.168.245.116 ([192.168.245.116]:22).\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /home/ansible/.ansible/cp/88c3693c46.TJwj2fIixRxKRMU1\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug3: fd 4 is O_NONBLOCK\r\ndebug3: fd 4 is O_NONBLOCK\r\ndebug1: channel 0: new [/home/ansible/.ansible/cp/88c3693c46]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 4\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: ssh_packet_set_tos: set IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 78700\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug1: pledge: id\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 5\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: mux_master_process_hello: channel 1 slave version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: mux_master_process_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 78702\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 110\r\ndebug2: mux_master_process_new_session: channel 1: request tty 0, X 0, agent 0, subsys 0, term "xterm-256color", cmd "/bin/sh -c \'/usr/bin/python3 && sleep 0\'", env 1\r\ndebug3: mm_receive_fd: recvmsg: Resource temporarily unavailable\r\ndebug3: mm_receive_fd: recvmsg: Resource temporarily unavailable\r\ndebug3: mm_receive_fd: recvmsg: Resource temporarily unavailable\r\ndebug3: mux_master_process_new_session: got fds stdin 6, stdout 7, stderr 8\r\ndebug2: fd 6 setting O_NONBLOCK\r\ndebug2: fd 7 setting O_NONBLOCK\r\ndebug2: fd 8 setting O_NONBLOCK\r\ndebug1: channel 2: new [client-session]\r\ndebug2: mux_master_process_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug3: send packet: type 90\r\ndebug3: mux_client_request_session: session request sent\r\ndebug3: receive packet: type 80\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug3: receive packet: type 91\r\ndebug2: channel_input_open_confirmation: channel 2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug1: Sending environment.\r\ndebug1: Sending env LANG = en_US.UTF-8\r\ndebug2: channel 2: request env confirm 0\r\ndebug3: send packet: type 98\r\ndebug1: Sending command: /bin/sh -c \'/usr/bin/python3 && sleep 0\'\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: send packet: type 98\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: channel_input_open_confirmation: channel 2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug3: receive packet: type 99\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug2: channel 2: read<=0 rfd 6 len 0\r\ndebug2: channel 2: read failed\r\ndebug2: channel 2: chan_shutdown_read (i0 o0 sock -1 wfd 6 efd 8 [write])\r\ndebug2: channel 2: input open -> drain\r\ndebug2: channel 2: ibuf empty\r\ndebug2: channel 2: send eof\r\ndebug3: send packet: type 96\r\ndebug2: channel 2: input drain -> closed\r\ndebug2: channel 2: rcvd adjust 65536\r\ndebug3: receive packet: type 96\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug2: channel 2: obuf empty\r\ndebug2: channel 2: chan_shutdown_write (i3 o1 sock -1 wfd 7 efd 8 [write])\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: send close\r\ndebug3: send packet: type 97\r\ndebug3: channel 2: will not send data after close\r\ndebug3: receive packet: type 98\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug3: receive packet: type 98\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 1\r\ndebug3: receive packet: type 97\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: channel 1: chan_shutdown_read (i0 o1 sock 5 wfd 5 efd -1 [closed])\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #1 mux-control (t16 nr0 i3/0 o1/16 e[closed]/0 fd 5/5/-1 sock 5 cc -1)\r\n  #2 client-session (t4 r0 i3/0 o3/0 e[write]/0 fd -1/-1/8 sock -1 cc -1)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: channel 1: chan_shutdown_write (i3 o1 sock 5 wfd 5 efd -1 [closed])\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: channel 1: status: The following connections are open:\r\n  #1 mux-control (t16 nr0 i3/0 o3/0 e[closed]/0 fd 5/5/-1 sock 5 cc -1)\r\n\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 1\r\n')
+2022-05-14 23:41:51,552 p=78677 u=ansible n=ansible | <192.168.245.116> Failed to connect to the host via ssh: OpenSSH_8.2p1 Ubuntu-4ubuntu0.4, OpenSSL 1.1.1f  31 Mar 2020
+debug1: Reading configuration data /home/ansible/.ssh/config
+debug1: /home/ansible/.ssh/config line 1: Applying options for 192.168.245.116
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug2: resolve_canonicalize: hostname 192.168.245.116 is address
+debug1: auto-mux: Trying existing master
+debug1: Control socket "/home/ansible/.ansible/cp/88c3693c46" does not exist
+debug2: ssh_connect_direct
+debug1: Connecting to 192.168.245.116 [192.168.245.116] port 22.
+debug2: fd 3 setting O_NONBLOCK
+debug1: fd 3 clearing O_NONBLOCK
+debug1: Connection established.
+debug3: timeout: 9970 ms remain after connect
+debug1: identity file /home/ansible/.ssh/id_rsa type -1
+debug1: identity file /home/ansible/.ssh/id_rsa-cert type -1
+debug1: identity file /home/ansible/.ssh/id_dsa type -1
+debug1: identity file /home/ansible/.ssh/id_dsa-cert type -1
+debug1: identity file /home/ansible/.ssh/id_ecdsa type -1
+debug1: identity file /home/ansible/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/ansible/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/ansible/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/ansible/.ssh/id_ed25519 type -1
+debug1: identity file /home/ansible/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/ansible/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/ansible/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/ansible/.ssh/id_xmss type -1
+debug1: identity file /home/ansible/.ssh/id_xmss-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.4
+debug1: Remote protocol version 2.0, remote software version OpenSSH_8.0 PKIX[Portable]
+debug1: match: OpenSSH_8.0 PKIX[Portable] pat OpenSSH* compat 0x04000000
+debug2: fd 3 setting O_NONBLOCK
+debug1: Authenticating to 192.168.245.116:22 as 'ansible2'
+debug3: hostkeys_foreach: reading file "/home/ansible/.ssh/known_hosts"
+debug3: record_hostkey: found key type ECDSA in file /home/ansible/.ssh/known_hosts:2
+debug3: load_hostkeys: loaded 1 keys from 192.168.245.116
+debug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521
+debug3: send packet: type 20
+debug1: SSH2_MSG_KEXINIT sent
+debug3: receive packet: type 20
+debug1: SSH2_MSG_KEXINIT received
+debug2: local client KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c
+debug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,ssh-ed25519,sk-ssh-ed25519@openssh.com,rsa-sha2-512,rsa-sha2-256,ssh-rsa
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com,zlib
+debug2: compression stoc: none,zlib@openssh.com,zlib
+debug2: languages ctos: 
+debug2: languages stoc: 
+debug2: first_kex_follows 0 
+debug2: reserved 0 
+debug2: peer server KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1
+debug2: host key algorithms: ssh-rsa,rsa-sha2-256,rsa-sha2-512,ecdsa-sha2-nistp256,ssh-ed25519
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none
+debug2: compression stoc: none
+debug2: languages ctos: 
+debug2: languages stoc: 
+debug2: first_kex_follows 0 
+debug2: reserved 0 
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ecdsa-sha2-nistp256
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug3: send packet: type 30
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug3: receive packet: type 31
+debug1: Server host key: ecdsa-sha2-nistp256 SHA256:75jclK7V6d6xNCHS3Nwu56S9N0Y2KghoTc+T2FGwU18
+debug3: hostkeys_foreach: reading file "/home/ansible/.ssh/known_hosts"
+debug3: record_hostkey: found key type ECDSA in file /home/ansible/.ssh/known_hosts:2
+debug3: load_hostkeys: loaded 1 keys from 192.168.245.116
+debug1: Host '192.168.245.116' is known and matches the ECDSA host key.
+debug1: Found key in /home/ansible/.ssh/known_hosts:2
+debug3: send packet: type 21
+debug2: set_newkeys: mode 1
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug3: receive packet: type 21
+debug1: SSH2_MSG_NEWKEYS received
+debug2: set_newkeys: mode 0
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /home/ansible/.ssh/id_rsa 
+debug1: Will attempt key: /home/ansible/.ssh/id_dsa 
+debug1: Will attempt key: /home/ansible/.ssh/id_ecdsa 
+debug1: Will attempt key: /home/ansible/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /home/ansible/.ssh/id_ed25519 
+debug1: Will attempt key: /home/ansible/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /home/ansible/.ssh/id_xmss 
+debug2: pubkey_prepare: done
+debug3: send packet: type 5
+debug3: receive packet: type 7
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: publickey-algorithms@roumenpetrov.info (unrecognised)
+debug1: kex_input_ext_info: server-sig-algs=<x509v3-ecdsa-sha2-nistp256,x509v3-ecdsa-sha2-nistp384,x509v3-ecdsa-sha2-nistp521,x509v3-sign-rsa,x509v3-ssh-rsa,x509v3-rsa2048-sha256,x509v3-sign-dss,x509v3-ssh-dss,ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521>
+debug3: receive packet: type 6
+debug2: service_accept: ssh-userauth
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug3: send packet: type 50
+debug3: receive packet: type 53
+debug3: input_userauth_banner
+
+ The End User License Agreement (EULA) and Additional License Authorization 
+ (ALA) documents are available at the following URL: 
+ www.arubanetworks.com/arubaos-cx-ova 
+ By downloading, copying, or using the ArubaOS-CX OVA you agree to both the 
+ End User License Agreement and the Additional License Authorization. 
+ ArubaOS-CX Virtual Platform is provided for Training purposes only.
+ As a reminder, there is no support or warranty associated with this platform.
+
+ (C) Copyright 2017-2021 Hewlett Packard Enterprise Development LP
+
+                      RESTRICTED RIGHTS LEGEND
+ Confidential computer software. Valid license from Hewlett Packard Enterprise
+ Development LP required for possession, use or copying. Consistent with FAR
+ 12.211 and 12.212, Commercial Computer Software, Computer Software
+ Documentation, and Technical Data for Commercial Items are licensed to the
+ U.S. Government under vendor's standard commercial license.
+
+
+debug3: receive packet: type 51
+debug1: Authentications that can continue: publickey,password
+debug3: start over, passed a different list publickey,password
+debug3: preferred gssapi-with-mic,publickey,keyboard-interactive,password
+debug3: authmethod_lookup publickey
+debug3: remaining preferred: keyboard-interactive,password
+debug3: authmethod_is_enabled publickey
+debug1: Next authentication method: publickey
+debug1: Trying private key: /home/ansible/.ssh/id_rsa
+debug3: no such identity: /home/ansible/.ssh/id_rsa: No such file or directory
+debug1: Trying private key: /home/ansible/.ssh/id_dsa
+debug3: no such identity: /home/ansible/.ssh/id_dsa: No such file or directory
+debug1: Trying private key: /home/ansible/.ssh/id_ecdsa
+debug3: no such identity: /home/ansible/.ssh/id_ecdsa: No such file or directory
+debug1: Trying private key: /home/ansible/.ssh/id_ecdsa_sk
+debug3: no such identity: /home/ansible/.ssh/id_ecdsa_sk: No such file or directory
+debug1: Trying private key: /home/ansible/.ssh/id_ed25519
+debug3: no such identity: /home/ansible/.ssh/id_ed25519: No such file or directory
+debug1: Trying private key: /home/ansible/.ssh/id_ed25519_sk
+debug3: no such identity: /home/ansible/.ssh/id_ed25519_sk: No such file or directory
+debug1: Trying private key: /home/ansible/.ssh/id_xmss
+debug3: no such identity: /home/ansible/.ssh/id_xmss: No such file or directory
+debug2: we did not send a packet, disable method
+debug3: authmethod_lookup password
+debug3: remaining preferred: ,password
+debug3: authmethod_is_enabled password
+debug1: Next authentication method: password
+debug3: send packet: type 50
+debug2: we sent a password packet, wait for reply
+debug3: receive packet: type 52
+debug1: Authentication succeeded (password).
+Authenticated to 192.168.245.116 ([192.168.245.116]:22).
+debug1: setting up multiplex master socket
+debug3: muxserver_listen: temporary control path /home/ansible/.ansible/cp/88c3693c46.TJwj2fIixRxKRMU1
+debug2: fd 4 setting O_NONBLOCK
+debug3: fd 4 is O_NONBLOCK
+debug3: fd 4 is O_NONBLOCK
+debug1: channel 0: new [/home/ansible/.ansible/cp/88c3693c46]
+debug3: muxserver_listen: mux listener channel 0 fd 4
+debug2: fd 3 setting TCP_NODELAY
+debug3: ssh_packet_set_tos: set IP_TOS 0x08
+debug1: control_persist_detach: backgrounding master process
+debug2: control_persist_detach: background process is 78700
+debug2: fd 4 setting O_NONBLOCK
+debug1: forking to background
+debug1: Entering interactive session.
+debug1: pledge: id
+debug2: set_control_persist_exit_time: schedule exit in 60 seconds
+debug1: multiplexing control connection
+debug2: fd 5 setting O_NONBLOCK
+debug3: fd 5 is O_NONBLOCK
+debug1: channel 1: new [mux-control]
+debug3: channel_post_mux_listener: new mux channel 1 fd 5
+debug3: mux_master_read_cb: channel 1: hello sent
+debug2: set_control_persist_exit_time: cancel scheduled exit
+debug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4
+debug2: mux_master_process_hello: channel 1 slave version 4
+debug2: mux_client_hello_exchange: master version 4
+debug3: mux_client_forwards: request forwardings: 0 local, 0 remote
+debug3: mux_client_request_session: entering
+debug3: mux_client_request_alive: entering
+debug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4
+debug2: mux_master_process_alive_check: channel 1: alive check
+debug3: mux_client_request_alive: done pid = 78702
+debug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 110
+debug2: mux_master_process_new_session: channel 1: request tty 0, X 0, agent 0, subsys 0, term "xterm-256color", cmd "/bin/sh -c '/usr/bin/python3 && sleep 0'", env 1
+debug3: mm_receive_fd: recvmsg: Resource temporarily unavailable
+debug3: mm_receive_fd: recvmsg: Resource temporarily unavailable
+debug3: mm_receive_fd: recvmsg: Resource temporarily unavailable
+debug3: mux_master_process_new_session: got fds stdin 6, stdout 7, stderr 8
+debug2: fd 6 setting O_NONBLOCK
+debug2: fd 7 setting O_NONBLOCK
+debug2: fd 8 setting O_NONBLOCK
+debug1: channel 2: new [client-session]
+debug2: mux_master_process_new_session: channel_new: 2 linked to control channel 1
+debug2: channel 2: send open
+debug3: send packet: type 90
+debug3: mux_client_request_session: session request sent
+debug3: receive packet: type 80
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug3: receive packet: type 91
+debug2: channel_input_open_confirmation: channel 2: callback start
+debug2: client_session2_setup: id 2
+debug1: Sending environment.
+debug1: Sending env LANG = en_US.UTF-8
+debug2: channel 2: request env confirm 0
+debug3: send packet: type 98
+debug1: Sending command: /bin/sh -c '/usr/bin/python3 && sleep 0'
+debug2: channel 2: request exec confirm 1
+debug3: send packet: type 98
+debug3: mux_session_confirm: sending success reply
+debug2: channel_input_open_confirmation: channel 2: callback done
+debug2: channel 2: open confirm rwindow 0 rmax 32768
+debug2: channel 2: rcvd adjust 2097152
+debug3: receive packet: type 99
+debug2: channel_input_status_confirm: type 99 id 2
+debug2: exec request accepted on channel 2
+debug2: channel 2: read<=0 rfd 6 len 0
+debug2: channel 2: read failed
+debug2: channel 2: chan_shutdown_read (i0 o0 sock -1 wfd 6 efd 8 [write])
+debug2: channel 2: input open -> drain
+debug2: channel 2: ibuf empty
+debug2: channel 2: send eof
+debug3: send packet: type 96
+debug2: channel 2: input drain -> closed
+debug2: channel 2: rcvd adjust 65536
+debug3: receive packet: type 96
+debug2: channel 2: rcvd eof
+debug2: channel 2: output open -> drain
+debug2: channel 2: obuf empty
+debug2: channel 2: chan_shutdown_write (i3 o1 sock -1 wfd 7 efd 8 [write])
+debug2: channel 2: output drain -> closed
+debug2: channel 2: send close
+debug3: send packet: type 97
+debug3: channel 2: will not send data after close
+debug3: receive packet: type 98
+debug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0
+debug2: channel 2: rcvd eow
+debug3: receive packet: type 98
+debug1: client_input_channel_req: channel 2 rtype exit-status reply 0
+debug3: mux_exit_message: channel 2: exit message, exitval 1
+debug3: receive packet: type 97
+debug2: channel 2: rcvd close
+debug3: channel 2: will not send data after close
+debug2: channel 2: is dead
+debug2: channel 2: gc: notify user
+debug3: mux_master_session_cleanup_cb: entering for channel 2
+debug2: channel 1: rcvd close
+debug2: channel 1: output open -> drain
+debug2: channel 1: chan_shutdown_read (i0 o1 sock 5 wfd 5 efd -1 [closed])
+debug2: channel 1: input open -> closed
+debug2: channel 2: gc: user detached
+debug2: channel 2: is dead
+debug2: channel 2: garbage collecting
+debug1: channel 2: free: client-session, nchannels 3
+debug3: channel 2: status: The following connections are open:
+  #1 mux-control (t16 nr0 i3/0 o1/16 e[closed]/0 fd 5/5/-1 sock 5 cc -1)
+  #2 client-session (t4 r0 i3/0 o3/0 e[write]/0 fd -1/-1/8 sock -1 cc -1)
+
+debug2: channel 1: obuf empty
+debug2: channel 1: chan_shutdown_write (i3 o1 sock 5 wfd 5 efd -1 [closed])
+debug2: channel 1: output drain -> closed
+debug2: channel 1: is dead (local)
+debug2: channel 1: gc: notify user
+debug3: mux_master_control_cleanup_cb: entering for channel 1
+debug2: channel 1: gc: user detached
+debug2: channel 1: is dead (local)
+debug2: channel 1: garbage collecting
+debug1: channel 1: free: mux-control, nchannels 2
+debug3: channel 1: status: The following connections are open:
+  #1 mux-control (t16 nr0 i3/0 o3/0 e[closed]/0 fd 5/5/-1 sock 5 cc -1)
+
+debug2: set_control_persist_exit_time: schedule exit in 60 seconds
+debug3: mux_client_read_packet: read header failed: Broken pipe
+debug2: Received exit status from master 1
+2022-05-14 23:41:51,771 p=78653 u=ansible n=ansible | fatal: [swCassidy]: FAILED! => {
+    "changed": false,
+    "module_stderr": "OpenSSH_8.2p1 Ubuntu-4ubuntu0.4, OpenSSL 1.1.1f  31 Mar 2020\r\ndebug1: Reading configuration data /home/ansible/.ssh/config\r\ndebug1: /home/ansible/.ssh/config line 1: Applying options for 192.168.245.116\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 192.168.245.116 is address\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/ansible/.ansible/cp/88c3693c46\" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 192.168.245.116 [192.168.245.116] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9970 ms remain after connect\r\ndebug1: identity file /home/ansible/.ssh/id_rsa type -1\r\ndebug1: identity file /home/ansible/.ssh/id_rsa-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_dsa type -1\r\ndebug1: identity file /home/ansible/.ssh/id_dsa-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ecdsa type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ecdsa-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ecdsa_sk type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ecdsa_sk-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ed25519 type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ed25519-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ed25519_sk type -1\r\ndebug1: identity file /home/ansible/.ssh/id_ed25519_sk-cert type -1\r\ndebug1: identity file /home/ansible/.ssh/id_xmss type -1\r\ndebug1: identity file /home/ansible/.ssh/id_xmss-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.4\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_8.0 PKIX[Portable]\r\ndebug1: match: OpenSSH_8.0 PKIX[Portable] pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.245.116:22 as 'ansible2'\r\ndebug3: hostkeys_foreach: reading file \"/home/ansible/.ssh/known_hosts\"\r\ndebug3: record_hostkey: found key type ECDSA in file /home/ansible/.ssh/known_hosts:2\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.245.116\r\ndebug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c\r\ndebug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,ssh-ed25519,sk-ssh-ed25519@openssh.com,rsa-sha2-512,rsa-sha2-256,ssh-rsa\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com,zlib\r\ndebug2: compression stoc: none,zlib@openssh.com,zlib\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1\r\ndebug2: host key algorithms: ssh-rsa,rsa-sha2-256,rsa-sha2-512,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: MACs ctos: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none\r\ndebug2: compression stoc: none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ecdsa-sha2-nistp256\r\ndebug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\r\ndebug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:75jclK7V6d6xNCHS3Nwu56S9N0Y2KghoTc+T2FGwU18\r\ndebug3: hostkeys_foreach: reading file \"/home/ansible/.ssh/known_hosts\"\r\ndebug3: record_hostkey: found key type ECDSA in file /home/ansible/.ssh/known_hosts:2\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.245.116\r\ndebug1: Host '192.168.245.116' is known and matches the ECDSA host key.\r\ndebug1: Found key in /home/ansible/.ssh/known_hosts:2\r\ndebug3: send packet: type 21\r\ndebug2: set_newkeys: mode 1\r\ndebug1: rekey out after 134217728 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: set_newkeys: mode 0\r\ndebug1: rekey in after 134217728 blocks\r\ndebug1: Will attempt key: /home/ansible/.ssh/id_rsa \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_dsa \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_ecdsa \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_ecdsa_sk \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_ed25519 \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_ed25519_sk \r\ndebug1: Will attempt key: /home/ansible/.ssh/id_xmss \r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: publickey-algorithms@roumenpetrov.info (unrecognised)\r\ndebug1: kex_input_ext_info: server-sig-algs=<x509v3-ecdsa-sha2-nistp256,x509v3-ecdsa-sha2-nistp384,x509v3-ecdsa-sha2-nistp521,x509v3-sign-rsa,x509v3-ssh-rsa,x509v3-rsa2048-sha256,x509v3-sign-dss,x509v3-ssh-dss,ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 53\r\ndebug3: input_userauth_banner\r\n\n The End User License Agreement (EULA) and Additional License Authorization \n (ALA) documents are available at the following URL: \n www.arubanetworks.com/arubaos-cx-ova \n By downloading, copying, or using the ArubaOS-CX OVA you agree to both the \n End User License Agreement and the Additional License Authorization. \n ArubaOS-CX Virtual Platform is provided for Training purposes only.\n As a reminder, there is no support or warranty associated with this platform.\n\n (C) Copyright 2017-2021 Hewlett Packard Enterprise Development LP\n\n                      RESTRICTED RIGHTS LEGEND\n Confidential computer software. Valid license from Hewlett Packard Enterprise\n Development LP required for possession, use or copying. Consistent with FAR\n 12.211 and 12.212, Commercial Computer Software, Computer Software\n Documentation, and Technical Data for Commercial Items are licensed to the\n U.S. Government under vendor's standard commercial license.\n\n\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,password\r\ndebug3: start over, passed a different list publickey,password\r\ndebug3: preferred gssapi-with-mic,publickey,keyboard-interactive,password\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: keyboard-interactive,password\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/ansible/.ssh/id_rsa\r\ndebug3: no such identity: /home/ansible/.ssh/id_rsa: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_dsa\r\ndebug3: no such identity: /home/ansible/.ssh/id_dsa: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_ecdsa\r\ndebug3: no such identity: /home/ansible/.ssh/id_ecdsa: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_ecdsa_sk\r\ndebug3: no such identity: /home/ansible/.ssh/id_ecdsa_sk: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_ed25519\r\ndebug3: no such identity: /home/ansible/.ssh/id_ed25519: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_ed25519_sk\r\ndebug3: no such identity: /home/ansible/.ssh/id_ed25519_sk: No such file or directory\r\ndebug1: Trying private key: /home/ansible/.ssh/id_xmss\r\ndebug3: no such identity: /home/ansible/.ssh/id_xmss: No such file or directory\r\ndebug2: we did not send a packet, disable method\r\ndebug3: authmethod_lookup password\r\ndebug3: remaining preferred: ,password\r\ndebug3: authmethod_is_enabled password\r\ndebug1: Next authentication method: password\r\ndebug3: send packet: type 50\r\ndebug2: we sent a password packet, wait for reply\r\ndebug3: receive packet: type 52\r\ndebug1: Authentication succeeded (password).\r\nAuthenticated to 192.168.245.116 ([192.168.245.116]:22).\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /home/ansible/.ansible/cp/88c3693c46.TJwj2fIixRxKRMU1\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug3: fd 4 is O_NONBLOCK\r\ndebug3: fd 4 is O_NONBLOCK\r\ndebug1: channel 0: new [/home/ansible/.ansible/cp/88c3693c46]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 4\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: ssh_packet_set_tos: set IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 78700\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug1: pledge: id\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 5\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: mux_master_process_hello: channel 1 slave version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: mux_master_process_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 78702\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 110\r\ndebug2: mux_master_process_new_session: channel 1: request tty 0, X 0, agent 0, subsys 0, term \"xterm-256color\", cmd \"/bin/sh -c '/usr/bin/python3 && sleep 0'\", env 1\r\ndebug3: mm_receive_fd: recvmsg: Resource temporarily unavailable\r\ndebug3: mm_receive_fd: recvmsg: Resource temporarily unavailable\r\ndebug3: mm_receive_fd: recvmsg: Resource temporarily unavailable\r\ndebug3: mux_master_process_new_session: got fds stdin 6, stdout 7, stderr 8\r\ndebug2: fd 6 setting O_NONBLOCK\r\ndebug2: fd 7 setting O_NONBLOCK\r\ndebug2: fd 8 setting O_NONBLOCK\r\ndebug1: channel 2: new [client-session]\r\ndebug2: mux_master_process_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug3: send packet: type 90\r\ndebug3: mux_client_request_session: session request sent\r\ndebug3: receive packet: type 80\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug3: receive packet: type 91\r\ndebug2: channel_input_open_confirmation: channel 2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug1: Sending environment.\r\ndebug1: Sending env LANG = en_US.UTF-8\r\ndebug2: channel 2: request env confirm 0\r\ndebug3: send packet: type 98\r\ndebug1: Sending command: /bin/sh -c '/usr/bin/python3 && sleep 0'\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: send packet: type 98\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: channel_input_open_confirmation: channel 2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug3: receive packet: type 99\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug2: channel 2: read<=0 rfd 6 len 0\r\ndebug2: channel 2: read failed\r\ndebug2: channel 2: chan_shutdown_read (i0 o0 sock -1 wfd 6 efd 8 [write])\r\ndebug2: channel 2: input open -> drain\r\ndebug2: channel 2: ibuf empty\r\ndebug2: channel 2: send eof\r\ndebug3: send packet: type 96\r\ndebug2: channel 2: input drain -> closed\r\ndebug2: channel 2: rcvd adjust 65536\r\ndebug3: receive packet: type 96\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug2: channel 2: obuf empty\r\ndebug2: channel 2: chan_shutdown_write (i3 o1 sock -1 wfd 7 efd 8 [write])\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: send close\r\ndebug3: send packet: type 97\r\ndebug3: channel 2: will not send data after close\r\ndebug3: receive packet: type 98\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug3: receive packet: type 98\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 1\r\ndebug3: receive packet: type 97\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: channel 1: chan_shutdown_read (i0 o1 sock 5 wfd 5 efd -1 [closed])\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #1 mux-control (t16 nr0 i3/0 o1/16 e[closed]/0 fd 5/5/-1 sock 5 cc -1)\r\n  #2 client-session (t4 r0 i3/0 o3/0 e[write]/0 fd -1/-1/8 sock -1 cc -1)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: channel 1: chan_shutdown_write (i3 o1 sock 5 wfd 5 efd -1 [closed])\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: channel 1: status: The following connections are open:\r\n  #1 mux-control (t16 nr0 i3/0 o3/0 e[closed]/0 fd 5/5/-1 sock 5 cc -1)\r\n\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 1\r\n",
+    "module_stdout": "Invalid input: /bin/sh\n",
+    "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error",
+    "rc": 1
+}
+2022-05-14 23:41:51,938 p=78653 u=ansible n=ansible |  ____________
+< PLAY RECAP >
+ ------------
+      \                    / \  //\
+       \    |\___/|      /   \//  \\
+            /0  0  \__  /    //  | \ \    
+           /     /  \/_/    //   |  \  \  
+           @_^_@'/   \/_   //    |   \   \ 
+           //_^_/     \/_ //     |    \    \
+        ( //) |        \///      |     \     \
+      ( / /) _|_ /   )  //       |      \     _\
+    ( // /) '/,_ _ _/  ( ; -.    |    _ _\.-~        .-~~~^-.
+  (( / / )) ,-{        _      `-.|.-~-.           .~         `.
+ (( // / ))  '/\      /                 ~-. _ .-~      .-~^-.  \
+ (( /// ))      `.   {            }                   /      \  \
+  (( / ))     .----~-.\        \-'                 .~         \  `. \^-.
+             ///.----..>        \             _ -~             `.  ^-`  ^-_
+               ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~
+                                                                  /.-~
+
+
+2022-05-14 23:41:51,952 p=78653 u=ansible n=ansible | swCassidy                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-05-14 23:41:51,953 p=78653 u=ansible n=ansible | Playbook run took 0 days, 0 hours, 0 minutes, 7 seconds
+2022-05-14 23:41:51,953 p=78653 u=ansible n=ansible | Saturday 14 May 2022  23:41:51 -0700 (0:00:06.971)       0:00:08.007 ********** 
+2022-05-14 23:41:51,953 p=78653 u=ansible n=ansible | =============================================================================== 
+2022-05-14 23:41:51,954 p=78653 u=ansible n=ansible | Create an exec banner on switch ------------------------------------------------------- 6.97s
+/home/ansible/afne/08_bnnrxc-ntp-hybrd.yml:20 -----------------------------------------------
+2022-05-14 23:41:51,954 p=78653 u=ansible n=ansible | Saturday 14 May 2022  23:41:51 -0700 (0:00:06.967)       0:00:07.989 ********** 
+2022-05-14 23:41:51,954 p=78653 u=ansible n=ansible | =============================================================================== 
+2022-05-14 23:41:51,954 p=78653 u=ansible n=ansible | aoscx_banner ------------------------------------------------------------ 6.96s
+2022-05-14 23:41:51,954 p=78653 u=ansible n=ansible | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+2022-05-14 23:41:51,954 p=78653 u=ansible n=ansible | total ------------------------------------------------------------------- 6.96s

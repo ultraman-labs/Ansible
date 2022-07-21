@@ -1,0 +1,33 @@
+---
+# This playbook demonstrates the use the Aruba "aoscx_banner" module to 
+# configure a banner onto an Aruba switch that's running AOS-CX 
+# version 10.07. 
+#
+# NOTE: The argument 'banner_type: banner', of the 'aoscx_banner' module,
+#       is actually the command 'banner motd' on the Aruba switch.
+#
+#       Also, remember that the "aoscx_banner" module is utilizes REST/API.
+#       This means that the following defualt setting 
+#       "ansible_connection: arubanetworks.aoscx.aoscx", in the all.yml file,
+#       must be uncommented.
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  roles:
+    - role: arubanetworks.aoscx_role
+
+  tasks:
+    - name: Create a banner motd on switch
+      aoscx_banner:
+        banner_type: banner     
+        banner: |
+
+          ░░░░░██╗░█████╗░██╗░░██╗███╗░░██╗██╗
+          ░░░░░██║██╔══██╗██║░░██║████╗░██║██║
+          ░░░░░██║██║░░██║███████║██╔██╗██║██║
+          ██╗░░██║██║░░██║██╔══██║██║╚████║╚═╝
+          ╚█████╔╝╚█████╔╝██║░░██║██║░╚███║██╗
+          ░╚════╝░░╚════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝
+                 

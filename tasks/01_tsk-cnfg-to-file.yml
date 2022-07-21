@@ -1,0 +1,16 @@
+---
+# This playbook consists of a single task described below. It's to 
+# be used with other reusable playbooks that incorporate the
+# "import_tasks and "include_tasks" directive. 
+#
+
+  - name: Save configuration to a text file
+    aoscx_command:
+      commands: ['show run']
+      wait_for:
+        - result[0] contains "Current configuration:"
+      retries: 3  
+      interval: 5
+      output_file: /home/ansible/afne/output/_{{ inventory_hostname }}-ntp-config.cfg
+      output_file_format: plain-text
+      

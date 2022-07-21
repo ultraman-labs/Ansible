@@ -1,0 +1,50 @@
+---
+# Playbook:
+#     * Executes the "show version" command on switches
+#     * Extracts Build ID, OS Version
+#     * Saves extracted data string elements to a text file
+#       with the name of the switch.
+#      
+#
+#  NOTE: This play saves two elements, of the output; 
+#        from stdout_lines. The first element is extracted from 
+#        stdout_lines via a numerical index. The second is extracted 
+#        by using the lineinfile module.
+#
+#        Stdout_lines, contains the entire output, 
+#        from the executed command to the switch, not as a single string.   
+#        But rather, as elements in an array. Each line of the output
+#        is a single element (a string) that can be extracted by its index.
+#        Remember we are dealing with structured data in the form
+#        of key value pairs, i.e, a dictionary, hash, map. See line
+#        30 of this playbook and it ought to make sense mathematically.
+#        It's extracting the 6th element from the output.
+#
+#        To see ansible recap the change in the playbook, after running
+#        this playbook go and make some basic configuration to the 
+#        device (an Aruba switch in my case). What I did is assign
+#        the loopback interface (it's logical you know), an IP address.
+
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  
+  tasks:  
+  - name: Show_Version
+    aoscx_command: 
+      commands: show version
+    register: version
+
+  - name: Save an output element to text file in ~/afne 
+    copy:
+      content: "{{version.stdout_lines[0][6]}}"
+      dest: "~/afne/{{inventory_hostname}}-version.txt"  
+
+  - name: Append an element to ~/afne/{{inventory_hostname}}-version.txt
+    lineinfile:
+      path: ~/afne/{{inventory_hostname}}-version.txt
+      line: "{{version.stdout_lines[0][4]}}"
+      create: true
+

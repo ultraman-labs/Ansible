@@ -1,0 +1,179 @@
+2022-05-08 15:24:28,612 p=10844 u=ansible n=ansible | ansible-playbook [core 2.12.4]
+  config file = /home/ansible/afne/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/ansible/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.8.10 (default, Mar 15 2022, 12:22:08) [GCC 9.4.0]
+  jinja version = 2.10.1
+  libyaml = True
+2022-05-08 15:24:28,613 p=10844 u=ansible n=ansible | Using /home/ansible/afne/ansible.cfg as config file
+2022-05-08 15:24:28,613 p=10844 u=ansible n=ansible | [DEPRECATION WARNING]: [defaults]cow_whitelist option, normalizing names to new standard, use 
+cowsay_enabled_stencils instead. This feature will be removed from ansible-core in version 2.15. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-05-08 15:24:28,614 p=10844 u=ansible n=ansible | setting up inventory plugins
+2022-05-08 15:24:28,625 p=10844 u=ansible n=ansible | host_list declined parsing /home/ansible/afne/hosts.yml as it did not pass its verify_file() method
+2022-05-08 15:24:28,625 p=10844 u=ansible n=ansible | script declined parsing /home/ansible/afne/hosts.yml as it did not pass its verify_file() method
+2022-05-08 15:24:28,628 p=10844 u=ansible n=ansible | Parsed /home/ansible/afne/hosts.yml inventory source with yaml plugin
+2022-05-08 15:24:28,815 p=10844 u=ansible n=ansible | Loading collection community.network from /usr/lib/python3/dist-packages/ansible_collections/community/network
+2022-05-08 15:24:28,821 p=10844 u=ansible n=ansible | Loading callback plugin default of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py
+2022-05-08 15:24:28,845 p=10844 u=ansible n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-05-08 15:24:28,845 p=10844 u=ansible n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-05-08 15:24:28,845 p=10844 u=ansible n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-05-08 15:24:28,983 p=10844 u=ansible n=ansible |  __________________________
+< PLAYBOOK: pb-config2.yml >
+ --------------------------
+        \  ^___^
+         \ (ooo)\_______
+           (___)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2022-05-08 15:24:28,984 p=10844 u=ansible n=ansible | 1 plays in pb-config2.yml
+2022-05-08 15:24:29,045 p=10844 u=ansible n=ansible |  _______________________
+< PLAY [AOSCX_Switches] >
+ -----------------------
+        \  ^___^
+         \ (ooo)\_______
+           (___)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2022-05-08 15:24:29,136 p=10844 u=ansible n=ansible | Loading collection arubanetworks.aoscx from /home/ansible/.ansible/collections/ansible_collections/arubanetworks/aoscx
+2022-05-08 15:24:29,148 p=10844 u=ansible n=ansible | META: ran handlers
+2022-05-08 15:24:29,187 p=10844 u=ansible n=ansible |  ______________________________________________
+< TASK [Retrieve configuration from text file] >
+ ----------------------------------------------
+  \
+   \
+       __     
+      UooU\.'@@@@@@`.
+      \__/(@@@@@@@@@@)
+           (@@@@@@@@)
+           `YY~~~~YY'
+            ||    ||
+
+
+2022-05-08 15:24:29,214 p=10854 u=ansible n=ansible | redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
+2022-05-08 15:24:29,229 p=10854 u=ansible n=ansible | Loading collection ansible.netcommon from /home/ansible/.ansible/collections/ansible_collections/ansible/netcommon
+2022-05-08 15:24:29,273 p=10854 u=ansible n=ansible | Loading collection arubanetworks.aos_switch from /home/ansible/.ansible/collections/ansible_collections/arubanetworks/aos_switch
+2022-05-08 15:24:29,280 p=10854 u=ansible n=ansible | <192.168.245.116> attempting to start connection
+2022-05-08 15:24:29,280 p=10854 u=ansible n=ansible | <192.168.245.116> using connection plugin ansible.netcommon.network_cli
+2022-05-08 15:24:29,281 p=10854 u=ansible n=ansible | Found ansible-connection at path /usr/bin/ansible-connection
+2022-05-08 15:24:30,565 p=10862 u=ansible n=ansible | redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
+2022-05-08 15:24:30,587 p=10862 u=ansible n=ansible | Loading collection ansible.netcommon from /home/ansible/.ansible/collections/ansible_collections/ansible/netcommon
+2022-05-08 15:24:30,698 p=10862 u=ansible n=ansible | Loading collection arubanetworks.aos_switch from /home/ansible/.ansible/collections/ansible_collections/arubanetworks/aos_switch
+2022-05-08 15:24:30,964 p=10854 u=ansible n=ansible | <192.168.245.116> local domain socket does not exist, starting it
+2022-05-08 15:24:30,965 p=10854 u=ansible n=ansible | <192.168.245.116> control socket path is /home/ansible/.ansible/pc/630c032f30
+2022-05-08 15:24:30,965 p=10854 u=ansible n=ansible | <192.168.245.116> redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
+2022-05-08 15:24:30,965 p=10854 u=ansible n=ansible | <192.168.245.116> Loading collection ansible.netcommon from /home/ansible/.ansible/collections/ansible_collections/ansible/netcommon
+2022-05-08 15:24:30,966 p=10854 u=ansible n=ansible | <192.168.245.116> Loading collection arubanetworks.aos_switch from /home/ansible/.ansible/collections/ansible_collections/arubanetworks/aos_switch
+2022-05-08 15:24:30,966 p=10854 u=ansible n=ansible | <192.168.245.116> local domain socket listeners started successfully
+2022-05-08 15:24:30,966 p=10854 u=ansible n=ansible | <192.168.245.116> loaded cliconf plugin ansible_collections.arubanetworks.aos_switch.plugins.cliconf.arubaoss from path /home/ansible/.ansible/collections/ansible_collections/arubanetworks/aos_switch/plugins/cliconf/arubaoss.py for network_os arubanetworks.aos_switch.arubaoss
+2022-05-08 15:24:30,966 p=10854 u=ansible n=ansible | network_os is set to arubanetworks.aos_switch.arubaoss
+2022-05-08 15:24:30,967 p=10854 u=ansible n=ansible | <192.168.245.116> ssh type is set to paramiko
+2022-05-08 15:24:30,967 p=10854 u=ansible n=ansible | <192.168.245.116> 
+2022-05-08 15:24:30,967 p=10854 u=ansible n=ansible | <192.168.245.116> local domain socket path is /home/ansible/.ansible/pc/630c032f30
+2022-05-08 15:24:30,971 p=10854 u=ansible n=ansible | <192.168.245.116> ESTABLISH LOCAL CONNECTION FOR USER: ansible
+2022-05-08 15:24:30,971 p=10854 u=ansible n=ansible | <192.168.245.116> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-local-10844jfxn0q7f `"&& mkdir "` echo /home/ansible/.ansible/tmp/ansible-local-10844jfxn0q7f/ansible-tmp-1652048670.9711185-10854-175068387661728 `" && echo ansible-tmp-1652048670.9711185-10854-175068387661728="` echo /home/ansible/.ansible/tmp/ansible-local-10844jfxn0q7f/ansible-tmp-1652048670.9711185-10854-175068387661728 `" ) && sleep 0'
+2022-05-08 15:24:31,227 p=10854 u=ansible n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/community/network/plugins/modules/aruba_config.py
+2022-05-08 15:24:31,232 p=10854 u=ansible n=ansible | <192.168.245.116> PUT /home/ansible/.ansible/tmp/ansible-local-10844jfxn0q7f/tmpil1i8eg7 TO /home/ansible/.ansible/tmp/ansible-local-10844jfxn0q7f/ansible-tmp-1652048670.9711185-10854-175068387661728/AnsiballZ_aruba_config.py
+2022-05-08 15:24:31,233 p=10854 u=ansible n=ansible | <192.168.245.116> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-local-10844jfxn0q7f/ansible-tmp-1652048670.9711185-10854-175068387661728/ /home/ansible/.ansible/tmp/ansible-local-10844jfxn0q7f/ansible-tmp-1652048670.9711185-10854-175068387661728/AnsiballZ_aruba_config.py && sleep 0'
+2022-05-08 15:24:31,256 p=10854 u=ansible n=ansible | <192.168.245.116> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-local-10844jfxn0q7f/ansible-tmp-1652048670.9711185-10854-175068387661728/AnsiballZ_aruba_config.py && sleep 0'
+2022-05-08 15:24:31,777 p=10862 u=ansible n=ansible | <192.168.245.116> ESTABLISH PARAMIKO SSH CONNECTION FOR USER: ansible2 on PORT 22 TO 192.168.245.116
+2022-05-08 15:24:31,854 p=10862 u=ansible n=p=10862 u=ansible | paramiko [192.168.245.116] | Connected (version 2.0, client OpenSSH_8.0)
+2022-05-08 15:24:31,945 p=10862 u=ansible n=p=10862 u=ansible | paramiko [192.168.245.116] | Auth banner: b"\n The End User License Agreement (EULA) and Additional License Authorization \n (ALA) documents are available at the following URL: \n www.arubanetworks.com/arubaos-cx-ova \n By downloading, copying, or using the ArubaOS-CX OVA you agree to both the \n End User License Agreement and the Additional License Authorization. \n ArubaOS-CX Virtual Platform is provided for Training purposes only.\n As a reminder, there is no support or warranty associated with this platform.\n\n (C) Copyright 2017-2021 Hewlett Packard Enterprise Development LP\n\n                      RESTRICTED RIGHTS LEGEND\n Confidential computer software. Valid license from Hewlett Packard Enterprise\n Development LP required for possession, use or copying. Consistent with FAR\n 12.211 and 12.212, Commercial Computer Software, Computer Software\n Documentation, and Technical Data for Commercial Items are licensed to the\n U.S. Government under vendor's standard commercial license.\n\n\n"
+2022-05-08 15:24:31,945 p=10862 u=ansible n=p=10862 u=ansible | paramiko [192.168.245.116] | Authentication (password) successful!
+2022-05-08 15:24:34,593 p=10862 u=ansible n=ansible | Traceback (most recent call last):
+  File "/home/ansible/.ansible/collections/ansible_collections/ansible/netcommon/plugins/connection/network_cli.py", line 460, in exec_command
+    cmd = json.loads(to_text(cmd, errors="surrogate_or_strict"))
+  File "/usr/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.8/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/ansible/utils/jsonrpc.py", line 46, in handle_request
+    result = rpc_method(*args, **kwargs)
+  File "/home/ansible/.ansible/collections/ansible_collections/ansible/netcommon/plugins/connection/network_cli.py", line 482, in exec_command
+    return self.send(command=cmd)
+  File "/home/ansible/.ansible/collections/ansible_collections/ansible/netcommon/plugins/connection/network_cli.py", line 337, in wrapped
+    return func(self, *args, **kwargs)
+  File "/home/ansible/.ansible/collections/ansible_collections/ansible/netcommon/plugins/connection/network_cli.py", line 1000, in send
+    response = self.receive(
+  File "/home/ansible/.ansible/collections/ansible_collections/ansible/netcommon/plugins/connection/network_cli.py", line 949, in receive
+    response = self.receive_paramiko(
+  File "/home/ansible/.ansible/collections/ansible_collections/ansible/netcommon/plugins/connection/network_cli.py", line 807, in receive_paramiko
+    raise AnsibleConnectionFailure(errored_response)
+ansible.errors.AnsibleConnectionFailure: /home/ansible/afne/config01.txt
+Invalid input: /home/ansible/afne/config01.txt
+swCassidy(config)# 
+
+2022-05-08 15:24:34,752 p=10854 u=ansible n=ansible | <192.168.245.116> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-local-10844jfxn0q7f/ansible-tmp-1652048670.9711185-10854-175068387661728/ > /dev/null 2>&1 && sleep 0'
+2022-05-08 15:24:34,796 p=10844 u=ansible n=ansible | fatal: [swCassidy]: FAILED! => {
+    "changed": false,
+    "command": "/home/ansible/afne/config01.txt",
+    "invocation": {
+        "module_args": {
+            "after": null,
+            "backup": false,
+            "backup_options": null,
+            "before": null,
+            "diff_against": null,
+            "diff_ignore_lines": null,
+            "encrypt": true,
+            "host": null,
+            "intended_config": null,
+            "lines": null,
+            "match": "line",
+            "parents": null,
+            "password": null,
+            "port": null,
+            "provider": null,
+            "replace": "line",
+            "running_config": null,
+            "save_when": "never",
+            "src": "/home/ansible/afne/config01.txt",
+            "ssh_keyfile": null,
+            "timeout": null,
+            "username": null
+        }
+    },
+    "msg": "/home/ansible/afne/config01.txt\r\nInvalid input: /home/ansible/afne/config01.txt\r\nswCassidy(config)# ",
+    "rc": -32603
+}
+2022-05-08 15:24:34,901 p=10844 u=ansible n=ansible |  ____________
+< PLAY RECAP >
+ ------------
+  \                                  ,+*^^*+___+++_
+   \                           ,*^^^^              )
+    \                       _+*                     ^**+_
+     \                    +^       _ _++*+_+++_,         )
+              _+^^*+_    (     ,+*^ ^          \+_        )
+             {       )  (    ,(    ,_+--+--,      ^)      ^\
+            { (@)    } f   ,(  ,+-^ __*_*_  ^^\_   ^\       )
+           {:;-/    (_+*-+^^^^^+*+*<_ _++_)_    )    )      /
+          ( /  (    (        ,___    ^*+_+* )   <    <      \
+           U _/     )    *--<  ) ^\-----++__)   )    )       )
+            (      )  _(^)^^))  )  )\^^^^^))^*+/    /       /
+          (      /  (_))_^)) )  )  ))^^^^^))^^^)__/     +^^
+         (     ,/    (^))^))  )  ) ))^^^^^^^))^^)       _)
+          *+__+*       (_))^)  ) ) ))^^^^^^))^^^^^)____*^
+          \             \_)^)_)) ))^^^^^^^^^^))^^^^)
+           (_             ^\__^^^^^^^^^^^^))^^^^^^^)
+             ^\___            ^\__^^^^^^))^^^^^^^^)\\
+                  ^^^^^\uuu/^^\uuu/^^^^\^\^\^\^\^\^\^\
+                     ___) >____) >___   ^\_\_\_\_\_\_\)
+                    ^^^//\\_^^//\\_^       ^(\_\_\_\)
+                      ^^^ ^^ ^^^ ^
+
+
+2022-05-08 15:24:34,903 p=10844 u=ansible n=ansible | swCassidy                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-05-08 15:24:34,920 p=10862 u=ansible n=ansible | shutdown complete

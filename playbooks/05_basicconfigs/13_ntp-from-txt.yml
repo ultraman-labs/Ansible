@@ -1,0 +1,30 @@
+---
+# This playbook demonstrates differnet configuring approaches: 
+#
+#  1) Config multiple NTP servers & hostname form text file
+#  2) Config a single NTP server with the "lines" arguement
+#  3) Config a single NTP server with the "lines" arguement & variable
+#  3) Save the configuration by using the "save_when" argument set to always
+#
+# For lines 24 through 26, uncomment the line you wish to use for the
+# configuration approach, and  keep the other lines commented.
+# 
+          
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+    ntp_server10: 10.10.10.10
+
+  tasks:
+  - name: Config NTP server & hostname from text file, or use Lines argument
+    aoscx_config:
+      #lines: ntp server 10.10.10.10
+      #lines: ntp server {{ ntp_server10 }}
+      src:  ~/afne/configs/01-ntpcnfg.txt    # Relative path 
+    
+  - name: Always save configurations, said my P.M. Roy
+    aoscx_config:
+      save_when: always       

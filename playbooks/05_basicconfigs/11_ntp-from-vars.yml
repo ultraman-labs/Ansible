@@ -1,0 +1,24 @@
+---
+# This playbook demonstrates the use of vars
+#
+# 1) Configure a single NTP server from a variable
+# 2) Save the running configuration to the startup configuratin 
+#    by using the "save_when" argument set to "always"
+#
+          
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+    ntp_server10: 10.10.10.10
+
+  tasks:
+  - name: Config single NTP server from vars substitution
+    aoscx_config:  
+      lines: ntp server {{ ntp_server10 }}
+      
+  - name: Save running configurations, said my P.M. Roy
+    aoscx_config:
+      save_when: always         # Equivalent to "write memory" in aos-cx

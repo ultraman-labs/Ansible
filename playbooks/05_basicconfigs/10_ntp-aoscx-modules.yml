@@ -1,0 +1,36 @@
+---
+# This playbook demonstrates the use of the "aoscx_command" module
+# and the "aoscx_config"
+#
+# 1) Configure single NTP server
+# 2) Capture output into a file named ntp-cnfig.cfg
+# 3) Execute "write memory" command on switch with "save_when" arguement
+#
+# NOTE: The aoscx_command module appears to login at the "Management" context
+#       level, and not in the "Global" configuration context level.
+#       This can be tested by removing the 'configure terminal' command
+#       from the commands array.
+          
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+
+  tasks: 
+  - name: Config single NTP server with aoscx_command
+    aoscx_command:
+      commands: ['configure terminal','ntp server 10.10.10.10']
+      #commands: ['show run']
+      # wait_for:
+      #   - result[0] contains "(config)"
+      # retries: 3  
+      # interval: 5
+      output_file: /home/ansible/afne/ntp-cnfig.cfg # Must have absolute file path
+      output_file_format: plain-text
+      
+
+  - name: Always save configurations, said my P.M. Roy Schwarz
+    aoscx_config:
+      save_when: always       

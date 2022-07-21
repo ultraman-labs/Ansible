@@ -1,0 +1,22 @@
+# This playbook generates back-up configurations of the AOSCX switches
+# and places them into uniquely named time-stamped sub-directories. 
+# The playbook uses the concept of reusablity, i.e, the use of prior 
+# created playbooks to coalesce a single playbook elegantly. 
+#
+#
+# To run playbook for swCassidy switch use:
+# $ ansible-playbook -l localhost,swCassidy 23_swtch-cnfg-bckp.yml -vvv
+#
+# To run playbook for all switches use:
+# $ ansible-playbook 23_swtch-cnfg-bckp.yml -vvv
+
+
+# Importing playbook
+
+- name: Retrieve date time and generate sub-directories
+  import_playbook: ./playbooks/05_basicconfigs/21_local-dt-facts.yml   
+
+# ---------------------------------------------------------
+
+- name: Generate current running configuration for archiving backup
+  import_playbook: ./playbooks/05_basicconfigs/22_gnrt-rnnng-cnfg.yml

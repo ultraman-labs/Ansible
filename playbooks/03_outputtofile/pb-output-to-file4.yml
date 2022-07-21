@@ -1,0 +1,86 @@
+---
+# Playbook:
+#     * Executes the "show version" command on switches
+#     * Executes the "show clock" command on switches
+#     * Extracts Date, time, Build ID, OS Version
+#     * Saves extracted data string elements to a text file
+#       with the name of the switch, to a specific sub directory.
+#      
+#
+#  NOTE: This playbook copies two elements, of the output; 
+#        from stdout_lines. The first element is extracted from 
+#        stdout_lines via a numerical index. The second is extracted 
+#        by using the lineinfile module.
+# 
+#        The playbook also extracts the date and time from the "show clock" 
+#        command on the switches, then appends that string to the existing 
+#        text file.
+#
+#        Stdout_lines, contains the entire output, 
+#        from the executed command to the switch, not as a single string.   
+#        But rather, as elements in an array. Each line of the output
+#        is a single element (a string) that can be extracted by its index.
+#        Remember we are dealing with structured data in the form
+#        of key value pairs, i.e, a dictionary, hash, map. See the 68th of 
+#        line this playbook and it ought to make sense mathematically.
+#        It's extracting the 6th element from the output.
+#
+#        To see ansible recap the change in the playbook, after running
+#        this playbook go and make some basic configuration change to the 
+#        device (an Aruba switch in my case). What I did is assign
+
+#        the loopback interface (it's logical you know), an IP address.
+
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+
+  tasks:
+  - name: Show_Clock
+    aoscx_command:
+      commands: show clock
+    register: fecha    
+
+   
+  - name: Show_Version
+    aoscx_command: 
+      commands: show version
+    register: version
+
+
+  - name: Copy time-date to existing text file in ~/afne 
+    copy:
+      content: "{{fecha.stdout_lines[0][0]}}"
+      dest: "~/afne/osversion/{{inventory_hostname}}-version.txt"
+
+
+  - name: Append a seperating line at Beggining Of existing File 
+    lineinfile:
+       path: "~/afne/osversion/{{inventory_hostname}}-version.txt" 
+       line: "-----------------------------------------------------"
+       insertbefore: BOF
+       
+
+  - name: Append OS-Ver to ~/afne/osversion/{{inventory_hostname}}-version.txt 
+    lineinfile:
+       path: "~/afne/osversion/{{inventory_hostname}}-version.txt" 
+       line: "{{version.stdout_lines[0][4]}}"
+       create: true
+        
+
+  - name: Append Build-ID to ~/afne/osversion/{{inventory_hostname}}-version.txt
+    lineinfile:
+      path: ~/afne/osversion/{{inventory_hostname}}-version.txt
+      line: "{{version.stdout_lines[0][6]}}"
+      create: true
+
+
+  - name: Append a seperating line to the end of the file. 
+    lineinfile:
+       path: "~/afne/osversion/{{inventory_hostname}}-version.txt" 
+       line: ----------------------------------------------------
+
+       # NOTE: The "line:" directive can be used with or without quotes 
+       

@@ -1,0 +1,69 @@
+---
+# With the use of "the import" directive, this playbook demonstrates 
+# the practicality of reusable playbooks. The targeted devices will 
+# be all four of the AOSCX switches.
+#
+# Prior, with playbook 12_ntp-from-template.yml, it was divided into
+# two distinct sections. One section created an ntp configuration file
+# on the localhost. In the second section, that configuration file was
+# retrieved as the source file used to push-out that configuration file 
+# onto the target device,i.e, the swCassidy switch. 
+#
+# Now with that first section, it has been created into its own
+# playbook named "15_local-ntp-cfg.yml". This playbook will now
+# be re-used into this current playbook "18_reusable-plybook.yml"
+# 
+# The idea behind this is so that our evolving playbooks become
+# more streamlined and modular. Instead of having several lines of
+# yaml script (that comprised section one of generating the 
+# configuration file), we can import playbook "15_local-ntp-cfg.yml"
+# and only use two lines of yaml script. This is accomplished with
+# the "import_playbook" directive. 
+#
+# NOTE: With the import_playbook directive there are two options that
+#       can be used with the file path that leads to the inteneded 
+#       imported file.
+#      
+#      1) The absolute path to the file.
+#      2) The current working directory of Ansible that leads to the file. 
+#         This is done with the "." period.
+#      
+#         See lines 48 and 49 for clarity.
+#
+#         If a releative path to the file is used, the import_directive 
+#         responds with an alert failure when proccessing the location 
+#         of the intended file to be imported.
+#
+#
+# To run playbook use:
+#
+# $ ansible-playbook 18_rsble-plybk.yml -vvv
+#
+
+#-----------------------------------------------------------------------------
+
+# Importing playbook that runs on the localhost
+
+- name: Generate ntp configuration file
+  import_playbook: ./playbooks/05_basicconfigs/15_local-ntp-cfg.yml
+  #import_playbook: /home/ansible/afne/playbooks/05_basicconfigs/15_local-ntp-cfg.yml
+
+# ----------------------------------------------------------------------------
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+
+  tasks:
+
+  - name: Config NTP server ip from imported playbook generated file
+    aoscx_config:  
+      src: ~/afne/src/ntp-cnfig4.cfg   
+      match: none
+      
+  - name: Always save configurations, said my P.M. Roy
+    aoscx_config:
+      save_when: always       

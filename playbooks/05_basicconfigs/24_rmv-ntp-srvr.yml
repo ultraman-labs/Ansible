@@ -1,0 +1,51 @@
+---
+
+# This playbook removes all current ntp server configurations from
+# the AOSCX switches, and configures a new ntp server on each switch. 
+#
+# Mental jots:
+#          * The keyword "register" is used to create a custom variable
+#            to capture device output.
+#          * "set_fact" and regex (Regular Expression) is used to sift 
+#            through the captured output, searching, collecting and storing 
+#            "ntp server" data to be used later.
+#          * The plugin "with_items" is used to perform a loop
+#            operation on stored "ntp server" collected data.
+#
+# NOTE: Either line 33 or 34 work.
+# 
+#
+# To run playbook use;
+#     $ ansible-playbook 24_rmv-ntp-srvr.yml -vvv
+
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+
+  tasks: 
+
+  - name: Capture ntp configuration into custom variable
+    aoscx_command:
+      #commands: ['show run | include ntp']   
+      commands: ['show run']
+    register: cnfg
+ 
+  - name: Display running configuration to standard out (the screen)
+    debug:
+      var: cnfg
+
+  - name: Sift for currenting runnning ntp server configurations    
+    set_fact: ntp_servers="{{ cnfg.stdout[0] | regex_findall('^ntp server (\S+)', multiline=True)}}"
+
+  - name: Remove all current ntp server configurations
+    aoscx_config:
+       lines: no ntp server {{ item }}
+    with_items: "{{ ntp_servers }}"
+
+  - name: Configure Norhtfork ntp server
+    aoscx_config:
+      lines: ntp server 2.3.5.7

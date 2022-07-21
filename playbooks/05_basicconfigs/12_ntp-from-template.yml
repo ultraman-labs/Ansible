@@ -1,0 +1,49 @@
+---
+# This playbook demonstrates the use of a Jinja template
+# 
+# 0) Playbook is divided into two play sections (localhost & AOSCX)
+# 1) Localhost section creates a configuration file via 
+#    the template module
+# 2) AOSCX section uses config file to config ntp server and
+#    hostname on swCassidy
+# 3) Save the configuration by using the "save_when" argument set to always
+# 4) Use the cli -l limit option to run playbook for localhost & swCassidy
+#
+#
+# To run playbook use:
+#
+# $ ansible-playbook -l localhost,swCassidy 12_ntp-from-template.yml
+#
+
+- hosts: localhost
+  connection: local
+  vars_files: ~/afne/vars/ntp-vars-vals3.yml  # Use file for multiple vals
+  
+  gather_facts: False
+  tasks:
+
+  - name: Generate ntp config file on local host
+    template: 
+      src=~/afne/templates/cnfntp3.j2 
+      dest=~/afne/output/ntp-cnfg.cfg
+    
+
+# ----------------------------------------------------
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+
+  tasks:
+
+  - name: Config NTP server ip addresses from config file 
+    aoscx_config:  
+      src: ~/afne/output/ntp-cnfg.cfg   
+      match: none
+      
+  - name: Always save configurations, said my P.M. Roy
+    aoscx_config:
+      save_when: always       

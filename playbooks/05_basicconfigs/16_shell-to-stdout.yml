@@ -1,0 +1,22 @@
+
+# This playbook demonstrates executing a shell command on the localhost.
+# Then using the register option to have the output displayed to
+# standard-out, i.e, to the screen. HA!
+#
+# To run the playbook use at the prompt:
+#
+# $ ansible-playbook 16_shell-to-stdout.yml -vvv
+
+---
+- hosts: localhost
+  connection: local
+  
+  gather_facts: False
+  tasks:
+    
+# Playing with Ansible locally
+  - name: Just execute ls -lrt
+    shell: "ls -ld */"
+    register: "output"
+
+  - debug: var=output.stdout_lines  

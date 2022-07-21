@@ -1,0 +1,6 @@
+---
+# NetAuto Specific Connectivity Info
+#netauto: ansible_host= 127.0.0.1
+
+# Node configuration variables
+ntp_server10: 10.10.10.10

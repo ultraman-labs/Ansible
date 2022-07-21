@@ -1,0 +1,29 @@
+---
+# This playbook demonstrates the use the Aruba "aoscx_banner" module to 
+# configure a banner onto an Aruba switch that's running AOS-CX 
+# version 10.07. 
+#
+# NOTE: The argument 'banner_type: banner', of the 'aoscx_banner' module,
+#       is actually the command 'banner motd' on the Aruba switch.
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  roles:
+    - role: arubanetworks.aoscx_role
+
+  tasks:
+    - name: Create a banner on switch
+      aoscx_banner:
+        banner_type: banner     # HOW TO ENTER A HARD RETURN IN YML?
+        banner: |
+
+          ████████╗░█████╗░███╗░░██╗██╗░░░██╗██╗
+          ╚══██╔══╝██╔══██╗████╗░██║╚██╗░██╔╝██║
+          ░░░██║░░░██║░░██║██╔██╗██║░╚████╔╝░██║
+          ░░░██║░░░██║░░██║██║╚████║░░╚██╔╝░░╚═╝
+          ░░░██║░░░╚█████╔╝██║░╚███║░░░██║░░░██╗
+          ░░░╚═╝░░░░╚════╝░╚═╝░░╚══╝░░░╚═╝░░░╚═╝
+          
+                 

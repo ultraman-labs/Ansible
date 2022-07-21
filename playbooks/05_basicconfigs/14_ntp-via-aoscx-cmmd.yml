@@ -1,0 +1,36 @@
+---
+# This playbook demonstrates configuring a single ntp server ip
+# address via the aoscx_command module and the "commands"
+# arguement. After the configuration is saved-- this is 
+# equivalent to "write memory" in the aoscx cli.
+#
+# Here we are using two configuration methods. One using the "commands"
+# argument, the other using jinja2 syntax.
+# 
+# To see the "commands" in action, uncomment line 25~27, and keep lines 29~31
+# commented out. To see jinja2 in action, uncomment lines 29-31, and 
+# comment out line 25~27. It's super easy Vato! :)
+#
+          
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+    ntp_server10: 10.10.10.10
+
+  tasks: 
+
+  - name: Config single NTP server with aoscx_command
+    aoscx_command:
+       commands: ['configure terminal','ntp server 10.10.10.10']
+
+  # - name: Config single NTP server from Jinja2 syntax  
+  #   aoscx_config:  
+  #     lines: ntp server {{ ntp_server10 }}
+      
+      
+  - name: Always save configurations, said my P.M. Roy
+    aoscx_config:
+      save_when: always       

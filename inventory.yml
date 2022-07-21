@@ -1,0 +1,11 @@
+---
+## Ansible Local Host File
+
+all:
+  hosts:
+    localhost:
+      vars: 
+        ansible_host: localhost
+        ansible_connection: local
+        delegate_to: localhost
+        ansible_python_interpreter: "{{ anisble_playbook_python }}" 

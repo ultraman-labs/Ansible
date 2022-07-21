@@ -1,0 +1,11 @@
+---
+# Testing Jinja2 with template module
+
+- hosts: localhost
+  connection: local
+  #vars_files: ~/afne/vars/localhost.yml
+  
+  gather_facts: False
+  tasks:
+  - name: Test Jinja2 Template
+    template: src=test.j2 dest=test.cfg

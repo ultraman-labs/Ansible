@@ -1,0 +1,24 @@
+---
+
+# This task retrieves the current running configuration via
+# the show command. Then saves the config to the designated
+# directory.
+
+- hosts: AOSCX_Switches
+  gather_facts : False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+
+  tasks: 
+
+  - name: Save configuration to a text file
+    aoscx_command:
+      commands: ['show run']
+      wait_for:
+        - result[0] contains "Current configuration:"
+      retries: 3  
+      interval: 5
+      output_file: /home/ansible/afne/backups/{{ hostvars.localhost.tstamp }}_{{ hostvars.localhost.YMD }}_{{ hostvars.localhost.TIME }}/{{ inventory_hostname }}-config.cfg
+      output_file_format: plain-text

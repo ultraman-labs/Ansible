@@ -1,0 +1,10 @@
+---
+## Ansible Host File
+
+all:
+
+  children:
+  
+    AOSCX_Switches:
+      hosts:
+        ansible_host : 192.168.244.115

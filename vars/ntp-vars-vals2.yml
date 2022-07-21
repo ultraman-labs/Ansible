@@ -1,0 +1,10 @@
+---
+
+# NTP configuration variables to be used with jinja2 file cnfntp2.j2
+# Here, a single ntp server ip address is being used
+# Note the syntax
+
+ntp_servers: 10.10.10.10
+
+
+
