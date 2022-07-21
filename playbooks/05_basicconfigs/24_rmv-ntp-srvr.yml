@@ -1,7 +1,8 @@
 ---
 
 # This playbook removes all current ntp server configurations from
-# the AOSCX switches, and configures a new ntp server on each switch. 
+# the AOSCX switches, and configures a new ntp server on each 
+# aruba switch. 
 #
 # Mental jots:
 #          * The keyword "register" is used to create a custom variable
